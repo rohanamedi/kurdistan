@@ -1,0 +1,611 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>404 - Kürdistan Coğrafyası</title>
+    
+    <!-- CSS -->
+    <link rel="stylesheet" href="style.css">
+    
+    <!-- Font Awesome Ikonlar -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        /* 404 Sayfası Özel Stilleri */
+        .error-container {
+            min-height: 80vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 40px 20px;
+        }
+        
+        .error-code {
+            font-size: 8rem;
+            font-weight: 900;
+            background: linear-gradient(45deg, var(--sor), var(--kesk), var(--zer));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            line-height: 1;
+            margin-bottom: 20px;
+            text-shadow: 0 0 30px rgba(225,25,25,0.3);
+        }
+        
+        .error-message {
+            font-size: 2rem;
+            color: var(--zer);
+            margin-bottom: 20px;
+        }
+        
+        .error-submessage {
+            font-size: 1.3rem;
+            color: var(--spî);
+            opacity: 0.9;
+            margin-bottom: 40px;
+            max-width: 800px;
+        }
+        
+        .kurdish-welcome {
+            background: rgba(225,25,25,0.2);
+            border-left: 5px solid var(--sor);
+            padding: 20px;
+            border-radius: 15px;
+            margin: 30px 0;
+            font-size: 1.3rem;
+            font-style: italic;
+            max-width: 800px;
+        }
+        
+        .kurdish-welcome span {
+            color: var(--zer);
+            font-weight: 600;
+        }
+        
+        .home-btn-large {
+            display: inline-block;
+            background: linear-gradient(45deg, var(--sor), var(--kesk));
+            color: var(--spî);
+            padding: 15px 40px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.2rem;
+            border: 2px solid var(--zer);
+            box-shadow: 0 0 20px var(--sor);
+            transition: all 0.3s ease;
+            margin-top: 30px;
+        }
+        
+        .home-btn-large:hover {
+            transform: scale(1.1);
+            box-shadow: 0 0 40px var(--sor);
+        }
+        
+        /* Harita Stilleri */
+        .map-section {
+            margin: 60px 0;
+            width: 100%;
+        }
+        
+        .filter-buttons {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            justify-content: center;
+            margin: 40px 0;
+        }
+        
+        .filter-btn {
+            background: transparent;
+            border: 2px solid var(--sor);
+            color: var(--spî);
+            padding: 12px 30px;
+            border-radius: 40px;
+            cursor: pointer;
+            font-size: 1.1rem;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        
+        .filter-btn:hover,
+        .filter-btn.active {
+            background: var(--sor);
+            box-shadow: 0 0 20px var(--sor);
+            border-color: var(--zer);
+        }
+        
+        .filter-btn[data-filter="Bakur"]:hover { background: #E11919; }
+        .filter-btn[data-filter="Başûr"]:hover { background: #009900; }
+        .filter-btn[data-filter="Rojhilat"]:hover { background: #FFD700; color: #000; }
+        .filter-btn[data-filter="Rojava"]:hover { background: #00D4FF; }
+        .filter-btn[data-filter="Kurdistana Sor"]:hover { background: #8A2BE2; }
+        
+        .map-container {
+            position: relative;
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            background: rgba(10, 14, 23, 0.8);
+            backdrop-filter: blur(10px);
+            border-radius: 30px;
+            padding: 30px;
+            border: 1px solid var(--zer);
+        }
+        
+        .map-grid {
+            position: relative;
+            width: 100%;
+            height: 700px;
+            background: radial-gradient(circle at 50% 50%, rgba(225,25,25,0.1), transparent);
+            border-radius: 20px;
+            overflow: hidden;
+        }
+        
+        /* Şehir noktaları */
+        .city-point {
+            position: absolute;
+            width: 12px;
+            height: 12px;
+            background: var(--zer);
+            border-radius: 50%;
+            transform: translate(-50%, -50%);
+            cursor: pointer;
+            transition: all 0.3s ease;
+            z-index: 10;
+            box-shadow: 0 0 15px var(--zer);
+        }
+        
+        .city-point:hover {
+            width: 20px;
+            height: 20px;
+            background: var(--sor);
+            box-shadow: 0 0 30px var(--sor);
+            z-index: 100;
+        }
+        
+        .city-point:hover::after {
+            content: attr(data-name);
+            position: absolute;
+            top: -30px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: var(--sor);
+            color: var(--spî);
+            padding: 5px 10px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            white-space: nowrap;
+            border: 1px solid var(--zer);
+            box-shadow: 0 0 10px var(--sor);
+            z-index: 1000;
+        }
+        
+        /* Bölge vurguları */
+        .region-highlight {
+            position: absolute;
+            opacity: 0.1;
+            transition: all 0.3s ease;
+            pointer-events: none;
+        }
+        
+        .region-highlight.Bakur {
+            background: radial-gradient(circle, var(--sor), transparent);
+        }
+        
+        /* Şehir popup'ı */
+        .city-popup {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: linear-gradient(135deg, var(--sor), var(--spî), var(--kesk));
+            padding: 5px;
+            border-radius: 30px;
+            z-index: 1000;
+            max-width: 500px;
+            width: 90%;
+            display: none;
+            box-shadow: 0 0 50px rgba(0,0,0,0.8);
+        }
+        
+        .city-popup.active {
+            display: block;
+        }
+        
+        .popup-content {
+            background: var(--feza-koyu);
+            padding: 30px;
+            border-radius: 25px;
+            color: var(--spî);
+        }
+        
+        .popup-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+            border-bottom: 2px solid var(--zer);
+            padding-bottom: 15px;
+        }
+        
+        .popup-header h2 {
+            color: var(--zer);
+            font-size: 2rem;
+            margin: 0;
+        }
+        
+        .popup-header .kurdish-name {
+            color: var(--kesk);
+            font-size: 1.3rem;
+        }
+        
+        .close-popup {
+            font-size: 2.5rem;
+            color: var(--sor);
+            cursor: pointer;
+            transition: 0.3s;
+        }
+        
+        .close-popup:hover {
+            color: var(--zer);
+            transform: rotate(90deg);
+        }
+        
+        .popup-body {
+            line-height: 1.8;
+        }
+        
+        .popup-body p {
+            margin: 15px 0;
+        }
+        
+        .popup-body strong {
+            color: var(--zer);
+        }
+        
+        .popup-body .official-name {
+            background: rgba(225,25,25,0.2);
+            padding: 10px;
+            border-radius: 10px;
+            border-left: 4px solid var(--sor);
+            margin: 20px 0;
+        }
+        
+        .popup-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.8);
+            backdrop-filter: blur(5px);
+            z-index: 999;
+            display: none;
+        }
+        
+        .popup-overlay.active {
+            display: block;
+        }
+        
+        /* Zaman tüneli animasyonu */
+        .time-tunnel {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, var(--sor), var(--kesk), var(--zer));
+            z-index: 10000;
+            display: none;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            animation: tunnelFade 2s ease forwards;
+        }
+        
+        .time-tunnel.active {
+            display: flex;
+        }
+        
+        .tunnel-text {
+            font-size: 3rem;
+            color: var(--spî);
+            text-shadow: 0 0 30px var(--zer);
+            animation: tunnelText 2s ease;
+            text-align: center;
+            padding: 20px;
+        }
+        
+        @keyframes tunnelFade {
+            0% { opacity: 0; }
+            20% { opacity: 1; }
+            80% { opacity: 1; }
+            100% { opacity: 0; display: none; }
+        }
+        
+        @keyframes tunnelText {
+            0% { transform: scale(0.1); opacity: 0; }
+            50% { transform: scale(1.2); opacity: 1; }
+            100% { transform: scale(1); opacity: 0; }
+        }
+    </style>
+</head>
+<body>
+    <!-- Uzay arkaplanı -->
+    <div class="stars" id="stars"></div>
+    
+    <!-- Zaman Tüneli -->
+    <div class="time-tunnel" id="timeTunnel">
+        <div class="tunnel-text">
+            ⏳ Hûn diçin kûrahiya dîroka Kurdistanê...<br>
+            <span style="font-size: 1.5rem;">Zagros'un derinliklerine yolculuk...</span>
+        </div>
+    </div>
+    
+    <!-- Şehir Popup'ı -->
+    <div class="popup-overlay" id="popupOverlay" onclick="closePopup()"></div>
+    <div class="city-popup" id="cityPopup">
+        <div class="popup-content" id="popupContent">
+            <!-- JavaScript ile doldurulacak -->
+        </div>
+    </div>
+    
+    <div class="container">
+        <!-- HEADER -->
+        <header>
+            <div class="flag">
+                <div class="flag-red"></div>
+                <div class="flag-white"></div>
+                <div class="flag-green"></div>
+            </div>
+            
+            <h1>404 - Rê Çewt e</h1>
+            <div class="subtitle">Yolunu mu kaybettin? Belki de Kürdistan'ı keşfetmelisin...</div>
+        </header>
+        
+        <!-- 404 MESAJI -->
+        <div class="error-container">
+            <div class="error-code">404</div>
+            <div class="error-message">Rûpel ne hate dîtin!</div>
+            <div class="error-submessage">
+                Aradığın sayfa Zagros'un sisleri arasında kayboldu.<br>
+                Belki de Kürdistan şehirlerini keşfetme zamanıdır.
+            </div>
+            
+            <div class="kurdish-welcome">
+                <span>Bi xêr hatî!</span> Kaybolmak bazen yeni yerler keşfetmektir.<br>
+                Aşağıdaki haritada Kürdistan'ın 5 parçasındaki şehirleri keşfet. Her şehrin kendi hikayesi var...
+            </div>
+            
+            <!-- Ana Sayfa Butonu -->
+            <a href="index.html" class="home-btn-large" onclick="showTimeTunnel(event)">
+                <i class="fas fa-home"></i> Veger malê · Ana Sayfaya Dön
+            </a>
+        </div>
+        
+        <!-- FİLTRE BUTONLARI -->
+        <div class="filter-buttons">
+            <button class="filter-btn active" data-filter="all" onclick="filterCities('all')">Hemû · Tümü</button>
+            <button class="filter-btn" data-filter="Bakur" onclick="filterCities('Bakur')">🔴 Bakur · Kuzey</button>
+            <button class="filter-btn" data-filter="Başûr" onclick="filterCities('Başûr')">🟢 Başûr · Güney</button>
+            <button class="filter-btn" data-filter="Rojhilat" onclick="filterCities('Rojhilat')">🟡 Rojhilat · Doğu</button>
+            <button class="filter-btn" data-filter="Rojava" onclick="filterCities('Rojava')">🔵 Rojava · Batı</button>
+            <button class="filter-btn" data-filter="Kurdistana Sor" onclick="filterCities('Kurdistana Sor')">🟣 Sor · Kızıl</button>
+        </div>
+        
+        <!-- HARİTA -->
+        <div class="map-section">
+            <div class="map-container">
+                <div class="map-grid" id="mapGrid">
+                    <!-- Şehirler JavaScript ile eklenecek -->
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- JavaScript -->
+    <script>
+        // Şehir veritabanı
+        const cities = [
+            // BAKUR
+            { id: 1, name: "Amed", official: "Diyarbakır", region: "Bakur", country: "Türkiye", population: "1.8M", history: "Amida, 12.000 yıllık tarih", people: "Ehmedê Xanî, Ali Emiri", places: "Suriçi, Dicle Köprüsü, Ulu Cami", posX: 40, posY: 45 },
+            { id: 2, name: "Wan", official: "Van", region: "Bakur", country: "Türkiye", population: "1.1M", history: "Tuşpa, Urartu başkenti", people: "Şeyh Said", places: "Van Kalesi, Akdamar, Muradiye", posX: 48, posY: 40 },
+            { id: 3, name: "Colemêrg", official: "Hakkâri", region: "Bakur", country: "Türkiye", population: "280K", history: "Çölemerik, Kürt beylikleri", people: "Melayê Cizîrî", places: "Zap Vadisi, Cilo Dağı", posX: 52, posY: 43 },
+            { id: 4, name: "Şirnex", official: "Şırnak", region: "Bakur", country: "Türkiye", population: "500K", history: "Botan Emirliği", people: "Bedirhan Bey", places: "Cizre, Dicle Nehri", posX: 48, posY: 50 },
+            { id: 5, name: "Mêrdîn", official: "Mardin", region: "Bakur", country: "Türkiye", population: "800K", history: "Merdo, Artuklular", people: "İbn Dihye", places: "Taş evler, Kasımiye", posX: 42, posY: 55 },
+            { id: 6, name: "Batman", official: "Batman", region: "Bakur", country: "Türkiye", population: "600K", history: "Ilısu, Hasankeyf", people: "Ebu Hanife", places: "Hasankeyf, Batman Çayı", posX: 44, posY: 52 },
+            { id: 7, name: "Sêrt", official: "Siirt", region: "Bakur", country: "Türkiye", population: "330K", history: "Tigris kıyısı", people: "İsmail Beşikçi", places: "Veysel Karani", posX: 45, posY: 48 },
+            { id: 8, name: "Bidlîs", official: "Bitlis", region: "Bakur", country: "Türkiye", population: "350K", history: "Bitlis Emirliği", people: "Şerefhan Bitlisi", places: "Bitlis Kalesi, Nemrut", posX: 44, posY: 42 },
+            { id: 9, name: "Mûş", official: "Muş", region: "Bakur", country: "Türkiye", population: "400K", history: "Muş Ovası", people: "Varto", places: "Murat Köprüsü", posX: 42, posY: 40 },
+            { id: 10, name: "Agirî", official: "Ağrı", region: "Bakur", country: "Türkiye", population: "500K", history: "Ararat isyanı", people: "İhsan Nuri Paşa", places: "Ağrı Dağı, Ahmed-i Hani", posX: 50, posY: 35 },
+            { id: 11, name: "Îdir", official: "Iğdır", region: "Bakur", country: "Türkiye", population: "200K", history: "Sürmeli", people: "Dr. Muhammed", places: "Aras Nehri", posX: 55, posY: 33 },
+            { id: 12, name: "Qers", official: "Kars (güney)", region: "Bakur", country: "Türkiye", population: "300K", history: "Ani, Bagratlı", people: "Raffi", places: "Ani Harabeleri", posX: 52, posY: 30 },
+            { id: 13, name: "Çewlîg", official: "Bingöl", region: "Bakur", country: "Türkiye", population: "280K", history: "Çabakçur", people: "Seyid Rıza", places: "Yüzen Ada", posX: 41, posY: 38 },
+            { id: 14, name: "Dêrsim", official: "Tunceli", region: "Bakur", country: "Türkiye", population: "150K", history: "Dersim İsyanı", people: "Seyid Rıza, Nuri Dersimi", places: "Munzur Vadisi", posX: 38, posY: 37 },
+            { id: 15, name: "Xarpêt", official: "Elazığ (doğu)", region: "Bakur", country: "Türkiye", population: "400K", history: "Harput", people: "Naim Bey", places: "Harput Kalesi", posX: 40, posY: 35 },
+            { id: 16, name: "Erzirom", official: "Erzurum", region: "Bakur", country: "Türkiye", population: "750K", history: "Karin, Theodosiopolis", people: "Nene Hatun", places: "Çifte Minare", posX: 45, posY: 33 },
+            { id: 17, name: "Erzîngan", official: "Erzincan", region: "Bakur", country: "Türkiye", population: "240K", history: "Eriza", people: "Terzi Baba", places: "Kemaliye", posX: 42, posY: 32 },
+            { id: 18, name: "Semsûr", official: "Adıyaman", region: "Bakur", country: "Türkiye", population: "600K", history: "Kommagene", people: "Mimar Sinan", places: "Nemrut Dağı", posX: 38, posY: 52 },
+            { id: 19, name: "Riha", official: "Şanlıurfa", region: "Bakur", country: "Türkiye", population: "2.1M", history: "Edessa, Göbeklitepe", people: "Hz. İbrahim", places: "Göbeklitepe, Balıklıgöl", posX: 35, posY: 55 },
+            { id: 20, name: "Entab", official: "Gaziantep", region: "Bakur", country: "Türkiye", population: "2.1M", history: "Aintap, Dülük", people: "Yılmaz Güney", places: "Zeugma, Kale", posX: 32, posY: 53 },
+            { id: 21, name: "Mereş", official: "Kahramanmaraş", region: "Bakur", country: "Türkiye", population: "1.1M", history: "Germanicia", people: "Süleyman Şah", places: "Kale, Dondurma", posX: 35, posY: 48 },
+            { id: 22, name: "Meletî", official: "Malatya", region: "Bakur", country: "Türkiye", population: "800K", history: "Melitene", people: "İnönü", places: "Aslantepe", posX: 38, posY: 45 },
+            { id: 23, name: "Sêwas", official: "Sivas", region: "Bakur", country: "Türkiye", population: "600K", history: "Sebastia", people: "Pir Sultan", places: "Madımak, Kale", posX: 35, posY: 40 },
+            
+            // BAŞUR
+            { id: 24, name: "Hewlêr", official: "Erbil", region: "Başûr", country: "Irak", population: "1.5M", history: "Erbil, Asur dönemi", people: "Celal Talabani", places: "Erbil Kalesi", posX: 60, posY: 58 },
+            { id: 25, name: "Silêmanî", official: "Süleymaniye", region: "Başûr", country: "Irak", population: "900K", history: "Baban Emirliği", people: "Şeyh Mahmut", places: "Azmar Dağı", posX: 65, posY: 62 },
+            { id: 26, name: "Dihok", official: "Duhok", region: "Başûr", country: "Irak", population: "400K", history: "Bahdinan", people: "Bedirhan Bey", places: "Zawita", posX: 55, posY: 53 },
+            { id: 27, name: "Helepçe", official: "Halepçe", region: "Başûr", country: "Irak", population: "200K", history: "Halepçe Katliamı", people: "Ebu Bekir", places: "Anfal Anıtı", posX: 67, posY: 64 },
+            { id: 28, name: "Zaxo", official: "Zaho", region: "Başûr", country: "Irak", population: "250K", history: "Zaxo, Süryaniler", people: "Haco Ağa", places: "Dicle Köprüsü", posX: 52, posY: 51 },
+            { id: 29, name: "Ranye", official: "Ranya", region: "Başûr", country: "Irak", population: "150K", history: "Ranya, Kürt beyleri", people: "Şeyh Said", places: "Dukan Gölü", posX: 63, posY: 60 },
+            { id: 30, name: "Koye", official: "Koy Sanjaq", region: "Başûr", country: "Irak", population: "150K", history: "Koye, Osmanlı", people: "Hacı Qadir", places: "Koye Kalesi", posX: 62, posY: 58 },
+            { id: 31, name: "Akrê", official: "Akre", region: "Başûr", country: "Irak", population: "100K", history: "Akre, Süryaniler", people: "Şeyh Muhammed", places: "Akre Kalesi", posX: 58, posY: 55 },
+            { id: 32, name: "Soran", official: "Soran", region: "Başûr", country: "Irak", population: "150K", history: "Soran Emirliği", people: "Mîr Mîhemed", places: "Soran Kalesi", posX: 60, posY: 57 },
+            { id: 33, name: "Kerkûk", official: "Kerkük", region: "Başûr", country: "Irak", population: "1.2M", history: "Arrapha, petrol", people: "Mehdi Zana", places: "Kerkük Kalesi", posX: 58, posY: 62 },
+            { id: 34, name: "Xaneqîn", official: "Hanekin", region: "Başûr", country: "Irak", population: "200K", history: "Hanekin, İran sınırı", people: "Şeyh Ubeydullah", places: "Elvend Dağı", posX: 68, posY: 68 },
+            { id: 35, name: "Mexmûr", official: "Mahmur", region: "Başûr", country: "Irak", population: "100K", history: "Mahmur Kampı", people: "Şeyh Mahmut", places: "Mescid", posX: 55, posY: 60 },
+            { id: 36, name: "Şengal", official: "Sincar", region: "Başûr", country: "Irak", population: "300K", history: "Şengal Dağı, Êzidîler", people: "Tahsin Beg", places: "Şengal Dağı", posX: 50, posY: 58 },
+            
+            // ROJHİLAT
+            { id: 37, name: "Sine", official: "Sanandaj", region: "Rojhilat", country: "İran", population: "500K", history: "Sine, Ardalan", people: "Mela Ebdulkerîm", places: "Sine Kalesi", posX: 72, posY: 62 },
+            { id: 38, name: "Mehabad", official: "Mahabad", region: "Rojhilat", country: "İran", population: "200K", history: "Mahabad Cumhuriyeti", people: "Qazî Mihemed", places: "Mahabad Müzesi", posX: 70, posY: 54 },
+            { id: 39, name: "Seqiz", official: "Saqqez", region: "Rojhilat", country: "İran", population: "250K", history: "Saqqez, Medler", people: "Hejar", places: "Zeribar Gölü", posX: 73, posY: 58 },
+            { id: 40, name: "Bane", official: "Baneh", region: "Rojhilat", country: "İran", population: "150K", history: "Bane, Hewraman", people: "Şêx Ebdilsemed", places: "Hewraman", posX: 75, posY: 60 },
+            { id: 41, name: "Merîwan", official: "Marivan", region: "Rojhilat", country: "İran", population: "150K", history: "Marivan, Zarivar", people: "Hemîn", places: "Zarivar Gölü", posX: 74, posY: 63 },
+            { id: 42, name: "Wirmê", official: "Urmiye", region: "Rojhilat", country: "İran", population: "800K", history: "Urmiye, Göl", people: "Selmaslı", places: "Urmiye Gölü", posX: 68, posY: 48 },
+            { id: 43, name: "Kirmaşan", official: "Kermanshah", region: "Rojhilat", country: "İran", population: "1M", history: "Kirmaşan, Sasaniler", people: "Mîrza Şefî", places: "Bisotun", posX: 78, posY: 70 },
+            { id: 44, name: "Îlam", official: "Ilam", region: "Rojhilat", country: "İran", population: "250K", history: "Ilam, Elam", people: "Şêx Mehmûd", places: "Kale", posX: 80, posY: 75 },
+            { id: 45, name: "Pawe", official: "Paveh", region: "Rojhilat", country: "İran", population: "100K", history: "Paveh, Hewraman", people: "Şêx Hemze", places: "Hewraman", posX: 76, posY: 65 },
+            { id: 46, name: "Serdeşt", official: "Sardasht", region: "Rojhilat", country: "İran", population: "120K", history: "Serdeşt, kimyasal saldırı", people: "Şêx Mistefa", places: "Kimyasal Anıtı", posX: 72, posY: 56 },
+            { id: 47, name: "Şino", official: "Oshnavieh", region: "Rojhilat", country: "İran", population: "80K", history: "Şino, Urmiye", people: "Şêx Ubeydullah", places: "Köprü", posX: 69, posY: 52 },
+            { id: 48, name: "Bîcar", official: "Bijar", region: "Rojhilat", country: "İran", population: "60K", history: "Bijar, halı", people: "Qedrîcan", places: "Halı Müzesi", posX: 75, posY: 60 },
+            { id: 49, name: "Dehgulan", official: "Dehgolan", region: "Rojhilat", country: "İran", population: "50K", history: "Dehgulan", people: "Şêx Ebdullah", places: "Köy", posX: 74, posY: 62 },
+            { id: 50, name: "Kamyaran", official: "Kamyaran", region: "Rojhilat", country: "İran", population: "80K", history: "Kamyaran", people: "Mela Ehmed", places: "Kale", posX: 73, posY: 64 },
+            
+            // ROJAVA
+            { id: 51, name: "Qamişlo", official: "Kamışlı", region: "Rojava", country: "Suriye", population: "300K", history: "Kamışlı, Cezire", people: "Salih Müslim", places: "Sınır kapısı", posX: 45, posY: 58 },
+            { id: 52, name: "Kobanî", official: "Ayn el-Arab", region: "Rojava", country: "Suriye", population: "100K", history: "Kobanê Direnişi", people: "Arîn Mîrkan", places: "Kobanê Tepesi", posX: 40, posY: 60 },
+            { id: 53, name: "Efrîn", official: "Afrin", region: "Rojava", country: "Suriye", population: "200K", history: "Efrîn, zeytin", people: "Mistefa", places: "Zeytin bahçeleri", posX: 35, posY: 58 },
+            { id: 54, name: "Dêrika Hemko", official: "Malikiye", region: "Rojava", country: "Suriye", population: "80K", history: "Dêrik, Dicle", people: "Osman Sebrî", places: "Dicle Nehri", posX: 48, posY: 56 },
+            { id: 55, name: "Amûdê", official: "Amude", region: "Rojava", country: "Suriye", population: "50K", history: "Amûdê, Xoybûn", people: "Celadet Bedirxan", places: "Hawar Okulu", posX: 46, posY: 57 },
+            { id: 56, name: "Tirbespî", official: "Tirbespî", region: "Rojava", country: "Suriye", population: "40K", history: "Tirbespî, petrol", people: "Cegerxwîn", places: "Petrol kuyusu", posX: 47, posY: 58 },
+            { id: 57, name: "Hesekê", official: "Haseke", region: "Rojava", country: "Suriye", population: "250K", history: "Hesekê, Habur", people: "Şêx Hemdûn", places: "Habur Nehri", posX: 48, posY: 59 },
+            { id: 58, name: "Girê Spî", official: "Tel Abyad", region: "Rojava", country: "Suriye", population: "70K", history: "Girê Spî, Fırat", people: "Şêx Hezni", places: "Fırat Nehri", posX: 42, posY: 61 },
+            { id: 59, name: "Ayn Îsa", official: "Ayn Issa", region: "Rojava", country: "Suriye", population: "30K", history: "Ayn Îsa, kanton", people: "Asya Abdullah", places: "Kanton Meclisi", posX: 43, posY: 62 },
+            
+            // KURDİSTANA SOR
+            { id: 60, name: "Laçîn", official: "Lachin", region: "Kurdistana Sor", country: "Azerbaycan", population: "20K", history: "Laçın Koridoru", people: "Kürt aşiretleri", places: "Laçın Kalesi", posX: 78, posY: 28 },
+            { id: 61, name: "Kelbecer", official: "Kelbecer", region: "Kurdistana Sor", country: "Azerbaycan", population: "15K", history: "Kelbecer, dağlar", people: "Şêx Hemze", places: "Kelbecer Kaplıcaları", posX: 80, posY: 30 },
+            { id: 62, name: "Zengîlan", official: "Zengilan", region: "Kurdistana Sor", country: "Azerbaycan", population: "10K", history: "Zengilan, sınır", people: "Kürt beyleri", places: "Araz Nehri", posX: 82, posY: 32 },
+            { id: 63, name: "Qubadli", official: "Kubadlı", region: "Kurdistana Sor", country: "Azerbaycan", population: "10K", history: "Kubadlı", people: "Kürt aşiretleri", places: "Köprü", posX: 81, posY: 31 },
+            { id: 64, name: "Cebrayil", official: "Cebrayıl", region: "Kurdistana Sor", country: "Azerbaycan", population: "10K", history: "Cebrayıl", people: "Şêx Ebdil", places: "Kale", posX: 83, posY: 33 },
+            { id: 65, name: "Ağdam", official: "Ağdam", region: "Kurdistana Sor", country: "Azerbaycan", population: "0", history: "Hayalet şehir", people: "Kürtler", places: "Cami", posX: 79, posY: 29 },
+            { id: 66, name: "Gence", official: "Gence", region: "Kurdistana Sor", country: "Azerbaycan", population: "300K", history: "Gence, Nizami", people: "Nizami Gencevi", places: "Nizami Türbesi", posX: 76, posY: 27 },
+            { id: 67, name: "Dvin", official: "Dvin", region: "Kurdistana Sor", country: "Ermenistan", population: "0", history: "Dvin, Şeddadiler", people: "Şeddadiler", places: "Harabeler", posX: 70, posY: 23 },
+            { id: 68, name: "Anî", official: "Ani", region: "Kurdistana Sor", country: "Ermenistan", population: "0", history: "Ani, 1001 kilise", people: "Şeddadiler", places: "Ani Harabeleri", posX: 55, posY: 28 },
+            { id: 69, name: "Aknaliç", official: "Aknalich", region: "Kurdistana Sor", country: "Ermenistan", population: "5K", history: "Aknaliç, Êzidîler", people: "Êzidîler", places: "Tapınak", posX: 68, posY: 24 },
+            { id: 70, name: "Alagöz", official: "Alagyaz", region: "Kurdistana Sor", country: "Ermenistan", population: "3K", history: "Alagöz Dağı", people: "Kürtler", places: "Dağ", posX: 67, posY: 25 }
+        ];
+
+        // Haritayı oluştur
+        function createMap() {
+            const mapGrid = document.getElementById('mapGrid');
+            mapGrid.innerHTML = '';
+            
+            cities.forEach(city => {
+                const cityPoint = document.createElement('div');
+                cityPoint.className = 'city-point';
+                cityPoint.setAttribute('data-id', city.id);
+                cityPoint.setAttribute('data-name', city.name);
+                cityPoint.setAttribute('data-region', city.region);
+                cityPoint.style.left = city.posX + '%';
+                cityPoint.style.top = city.posY + '%';
+                cityPoint.onclick = () => showCityPopup(city);
+                mapGrid.appendChild(cityPoint);
+            });
+        }
+
+        // Şehir popup'ını göster
+        function showCityPopup(city) {
+            const popup = document.getElementById('cityPopup');
+            const overlay = document.getElementById('popupOverlay');
+            const content = document.getElementById('popupContent');
+            
+            content.innerHTML = `
+                <div class="popup-header">
+                    <div>
+                        <h2>${city.name}</h2>
+                        <div class="kurdish-name">${city.official}</div>
+                    </div>
+                    <span class="close-popup" onclick="closePopup()">&times;</span>
+                </div>
+                <div class="popup-body">
+                    <p><strong>🏔️ Bölge:</strong> ${city.region} · ${city.country}</p>
+                    <p><strong>👥 Nüfus:</strong> ~${city.population}</p>
+                    
+                    <div class="official-name">
+                        <strong>📌 Resmi adı:</strong> ${city.official}
+                    </div>
+                    
+                    <p><strong>📜 Tarih:</strong> ${city.history}</p>
+                    
+                    <p><strong>👤 Ünlü şahsiyetler:</strong> ${city.people}</p>
+                    
+                    <p><strong>🏛️ Tarihi yerler:</strong> ${city.places}</p>
+                    
+                    <p style="margin-top: 20px; color: var(--zer); font-style: italic;">
+                        "${city.name} - Zagros'un incisi"
+                    </p>
+                </div>
+            `;
+            
+            popup.classList.add('active');
+            overlay.classList.add('active');
+        }
+
+        function closePopup() {
+            document.getElementById('cityPopup').classList.remove('active');
+            document.getElementById('popupOverlay').classList.remove('active');
+        }
+
+        // Şehirleri filtrele
+        function filterCities(region) {
+            const points = document.querySelectorAll('.city-point');
+            const buttons = document.querySelectorAll('.filter-btn');
+            
+            buttons.forEach(btn => btn.classList.remove('active'));
+            document.querySelector(`[data-filter="${region}"]`).classList.add('active');
+            
+            points.forEach(point => {
+                if (region === 'all' || point.dataset.region === region) {
+                    point.style.opacity = '1';
+                    point.style.pointerEvents = 'auto';
+                } else {
+                    point.style.opacity = '0.1';
+                    point.style.pointerEvents = 'none';
+                }
+            });
+        }
+
+        // Zaman tüneli animasyonu
+        function showTimeTunnel(event) {
+            event.preventDefault();
+            const tunnel = document.getElementById('timeTunnel');
+            tunnel.classList.add('active');
+            
+            setTimeout(() => {
+                window.location.href = event.currentTarget.href;
+            }, 2000);
+        }
+
+        // Yıldızları oluştur
+        function createStars() {
+            const starsContainer = document.getElementById('stars');
+            if (!starsContainer) return;
+            for (let i = 0; i < 150; i++) {
+                const star = document.createElement('div');
+                star.className = 'star';
+                star.style.width = (Math.random() * 3 + 1) + 'px';
+                star.style.height = star.style.width;
+                star.style.left = Math.random() * 100 + '%';
+                star.style.top = Math.random() * 100 + '%';
+                star.style.animation = `twinkle ${Math.random() * 5 + 2}s infinite`;
+                starsContainer.appendChild(star);
+            }
+        }
+
+        // Sayfa yüklendiğinde
+        window.onload = function() {
+            createStars();
+            createMap();
+        };
+    </script>
+</body>
+</html>
