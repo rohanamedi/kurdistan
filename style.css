@@ -1,0 +1,571 @@
+/* ===== style.css ===== */
+/* Zagros'tan Geleceğe - Kürdistan Tarihi */
+/* Telefon uyumlu - problemli CSS'ler kaldırıldı */
+
+/* ===== KÜRDİSTAN RENKLERİ ===== */
+:root {
+    --sor: #E11919;        /* Kırmızı */
+    --spî: #FFFFFF;        /* Beyaz */
+    --kesk: #009900;        /* Yeşil */
+    --zer: #FFD700;         /* Sarı (güneş) */
+    
+    /* Uzay Teması - Sadeleştirildi */
+    --feza-koyu: #0A0E17;   /* Derin uzay */
+    --feza-mavi: #1A2A4A;    /* Uzay mavisi */
+    --pêşeroj-cyan: #00D4FF;
+    
+    /* Yazı Tipleri */
+    --font-main: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* ===== RESET & TEMEL STILLER ===== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: var(--font-main);
+    background-color: var(--feza-koyu);
+    color: var(--spî);
+    line-height: 1.6;
+    min-height: 100vh;
+}
+
+/* ===== SADE UZAY ARKAPLANI ===== */
+/* Karmaşık gradient'ler kaldırıldı, tek renk arkaplan */
+body {
+    background-color: var(--feza-koyu);
+}
+
+/* ===== ANA KAPSAM ===== */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 15px;
+}
+
+/* ===== HEADER ===== */
+header {
+    text-align: center;
+    padding: 40px 20px 25px;
+    border-bottom: 2px solid var(--sor);
+    margin-bottom: 30px;
+    background: rgba(10, 14, 23, 0.8);
+    border-radius: 20px;
+}
+
+.flag {
+    display: flex;
+    height: 8px;
+    width: 100%;
+    max-width: 500px;
+    margin: 0 auto 20px;
+    border-radius: 20px;
+    overflow: hidden;
+}
+
+.flag-red {
+    flex: 1;
+    background: var(--sor);
+}
+
+.flag-white {
+    flex: 1;
+    background: var(--spî);
+}
+
+.flag-green {
+    flex: 1;
+    background: var(--kesk);
+}
+
+h1 {
+    font-size: 2.8rem;
+    margin-bottom: 15px;
+    background: linear-gradient(90deg, 
+        var(--sor) 0%,
+        var(--spî) 30%,
+        var(--zer) 50%,
+        var(--spî) 70%,
+        var(--kesk) 100%
+    );
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    font-weight: 700;
+}
+
+.subtitle {
+    font-size: 1.3rem;
+    color: var(--pêşeroj-cyan);
+    margin-bottom: 15px;
+}
+
+/* ===== NAVİGASYON ===== */
+.nav-container {
+    background: rgba(10, 14, 23, 0.8);
+    border-radius: 40px;
+    padding: 10px 15px;
+    margin-bottom: 30px;
+    border: 1px solid var(--zer);
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.nav-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 5px;
+}
+
+.nav-link {
+    padding: 6px 12px;
+    color: var(--spî);
+    text-decoration: none;
+    border-radius: 30px;
+    transition: all 0.3s ease;
+    font-size: 0.85rem;
+    border: 1px solid transparent;
+}
+
+.nav-link:hover {
+    border-color: var(--zer);
+    background: rgba(225, 25, 25, 0.2);
+}
+
+.nav-link.active {
+    background: var(--sor);
+    color: var(--spî);
+    border-color: var(--zer);
+}
+
+.nav-buttons {
+    display: flex;
+    gap: 8px;
+}
+
+.nav-btn {
+    background: transparent;
+    border: 1px solid var(--sor);
+    color: var(--spî);
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-size: 1rem;
+    text-decoration: none;
+}
+
+.nav-btn:hover {
+    background: var(--sor);
+}
+
+/* ===== ANA İÇERİK KARTI ===== */
+.main-card {
+    background: rgba(26, 26, 26, 0.8);
+    border-radius: 25px;
+    padding: 30px;
+    margin: 25px 0;
+    border: 1px solid rgba(255, 215, 0, 0.3);
+}
+
+/* ===== YAZI STİLLERİ ===== */
+.writing-area h1 {
+    font-size: 2.4rem;
+    color: var(--zer);
+    margin-bottom: 20px;
+    padding-bottom: 10px;
+    border-bottom: 3px solid var(--sor);
+    background: none;
+    -webkit-background-clip: unset;
+    background-clip: unset;
+    color: var(--zer);
+}
+
+.writing-area h2 {
+    font-size: 2rem;
+    color: var(--pêşeroj-cyan);
+    margin: 25px 0 15px;
+}
+
+.writing-area h3 {
+    font-size: 1.6rem;
+    color: var(--zer);
+    margin: 20px 0 15px;
+    border-left: 4px solid var(--sor);
+    padding-left: 15px;
+}
+
+.writing-area p {
+    font-size: 1.1rem;
+    margin-bottom: 20px;
+    color: rgba(255, 255, 255, 0.9);
+}
+
+.writing-area ul, 
+.writing-area ol {
+    margin-left: 25px;
+    margin-bottom: 20px;
+}
+
+.writing-area li {
+    font-size: 1rem;
+    margin-bottom: 8px;
+    color: var(--spî);
+}
+
+.writing-area blockquote {
+    border-left: 5px solid var(--sor);
+    padding: 15px 25px;
+    margin: 25px 0;
+    background: rgba(225, 25, 25, 0.1);
+    font-style: italic;
+    font-size: 1.2rem;
+    border-radius: 0 10px 10px 0;
+}
+
+.writing-area .kurdish-word {
+    color: var(--kesk);
+    font-weight: 600;
+}
+
+/* ===== KAYNAKÇA BÖLÜMÜ ===== */
+.kaynakca {
+    margin-top: 40px;
+    padding: 20px;
+    background: rgba(0, 0, 0, 0.5);
+    border-radius: 15px;
+    border-left: 5px solid var(--kesk);
+}
+
+.kaynakca li {
+    padding: 6px 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    font-size: 0.9rem;
+}
+
+/* ===== ANA SAYFA GRİD KARTLAR ===== */
+.grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 20px;
+    margin-top: 30px;
+}
+
+.card {
+    background: rgba(20, 24, 28, 0.8);
+    padding: 20px;
+    border-radius: 20px;
+    border-top: 4px solid var(--sor);
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-decoration: none;
+    color: inherit;
+    display: block;
+}
+
+.card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 5px 20px rgba(225, 25, 25, 0.3);
+}
+
+.card h3 {
+    color: var(--zer);
+    margin-bottom: 12px;
+    font-size: 1.3rem;
+}
+
+.card ul {
+    list-style: none;
+}
+
+.card li {
+    padding: 5px 0 5px 20px;
+    position: relative;
+    font-size: 0.95rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.card li:before {
+    content: "◇";
+    position: absolute;
+    left: 0;
+    color: var(--zer);
+}
+
+/* ===== SEMBOLLER BÖLÜMÜ ===== */
+.symbols-section {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 20px;
+    margin: 50px 0 30px;
+}
+
+.symbol-card {
+    background: rgba(10, 14, 23, 0.9);
+    border-radius: 15px;
+    padding: 20px;
+    text-align: center;
+    border: 1px solid var(--zer);
+    transition: all 0.3s ease;
+}
+
+.symbol-card:hover {
+    transform: translateY(-5px);
+    border-color: var(--pêşeroj-cyan);
+}
+
+.symbol-icon {
+    font-size: 40px;
+    color: var(--zer);
+    margin-bottom: 10px;
+}
+
+.symbol-card h4 {
+    font-size: 1.3rem;
+    color: var(--spî);
+    margin-bottom: 5px;
+}
+
+/* ===== NESİLLER BÖLÜMÜ ===== */
+.generations {
+    background: linear-gradient(135deg, rgba(225, 25, 25, 0.2), rgba(0, 212, 255, 0.2));
+    border-radius: 25px;
+    padding: 30px;
+    margin: 40px 0;
+    border: 1px solid var(--zer);
+}
+
+.generations h3 {
+    font-size: 1.8rem;
+    color: var(--zer);
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.family-tree {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    gap: 15px;
+}
+
+.tree-node {
+    text-align: center;
+    min-width: 100px;
+}
+
+.tree-node .node-icon {
+    font-size: 30px;
+    color: var(--pêşeroj-cyan);
+    margin-bottom: 8px;
+}
+
+.tree-node .kurdish {
+    font-size: 1.2rem;
+    color: var(--zer);
+    font-weight: 600;
+}
+
+.tree-node .turkish {
+    font-size: 0.9rem;
+    color: var(--spî);
+    opacity: 0.8;
+}
+
+.tree-connector {
+    font-size: 20px;
+    color: var(--sor);
+    align-self: center;
+}
+
+/* ===== NESİL TABLOSU ===== */
+.generation-row {
+    display: flex;
+    align-items: center;
+    padding: 12px;
+    border-bottom: 1px solid rgba(255, 215, 0, 0.3);
+    flex-wrap: wrap;
+}
+
+.gen-level {
+    width: 70px;
+    font-weight: bold;
+    color: var(--zer);
+    font-size: 1.1rem;
+}
+
+.gen-kurdish {
+    width: 130px;
+    font-weight: 600;
+    color: var(--kesk);
+    font-size: 1.1rem;
+}
+
+.gen-turkish {
+    flex: 1;
+    min-width: 120px;
+    color: var(--spî);
+}
+
+.gen-example {
+    width: 180px;
+    color: var(--pêşeroj-cyan);
+    font-style: italic;
+    font-size: 0.9rem;
+}
+
+/* ===== FOOTER ===== */
+footer {
+    text-align: center;
+    padding: 40px 0 20px;
+    margin-top: 50px;
+    border-top: 2px solid var(--sor);
+    background: rgba(10, 14, 23, 0.9);
+    border-radius: 20px;
+}
+
+.footer-text {
+    font-size: 1.2rem;
+    color: var(--spî);
+    margin-bottom: 10px;
+}
+
+.footer-gradient {
+    font-size: 1.3rem;
+    background: linear-gradient(45deg, var(--sor), var(--zer));
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+}
+
+/* ===== MOBİL UYUMLULUK ===== */
+@media (max-width: 768px) {
+    .container {
+        padding: 10px;
+    }
+    
+    h1 {
+        font-size: 2rem;
+    }
+    
+    .subtitle {
+        font-size: 1.1rem;
+    }
+    
+    .nav-container {
+        flex-direction: column;
+        gap: 10px;
+        border-radius: 20px;
+    }
+    
+    .nav-links {
+        justify-content: center;
+        width: 100%;
+    }
+    
+    .nav-link {
+        padding: 5px 10px;
+        font-size: 0.8rem;
+    }
+    
+    .nav-buttons {
+        width: 100%;
+        justify-content: center;
+    }
+    
+    .main-card {
+        padding: 20px;
+    }
+    
+    .writing-area h1 {
+        font-size: 1.8rem;
+    }
+    
+    .writing-area h2 {
+        font-size: 1.6rem;
+    }
+    
+    .writing-area h3 {
+        font-size: 1.4rem;
+    }
+    
+    .grid {
+        grid-template-columns: 1fr;
+        gap: 15px;
+    }
+    
+    .symbols-section {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 10px;
+    }
+    
+    .family-tree {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .tree-connector {
+        transform: rotate(90deg);
+    }
+    
+    .generation-row {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 5px;
+    }
+    
+    .gen-level,
+    .gen-kurdish,
+    .gen-turkish,
+    .gen-example {
+        width: 100%;
+    }
+}
+
+@media (max-width: 480px) {
+    h1 {
+        font-size: 1.6rem;
+    }
+    
+    .subtitle {
+        font-size: 1rem;
+    }
+    
+    .nav-link {
+        padding: 4px 8px;
+        font-size: 0.75rem;
+    }
+    
+    .writing-area h1 {
+        font-size: 1.5rem;
+    }
+    
+    .writing-area h2 {
+        font-size: 1.3rem;
+    }
+    
+    .writing-area h3 {
+        font-size: 1.2rem;
+    }
+    
+    .symbols-section {
+        grid-template-columns: 1fr;
+    }
+    
+    .symbol-icon {
+        font-size: 32px;
+    }
+}
