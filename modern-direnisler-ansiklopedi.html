@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ansiklopedi: Modern Direnişler - Zagros'tan Geleceğe</title>
+    
+    <!-- CSS -->
+    <link rel="stylesheet" href="style.css">
+    
+    <!-- Font Awesome Ikonlar -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><circle cx='50' cy='50' r='45' fill='%23E11919'/><circle cx='50' cy='50' r='35' fill='%23FFFFFF'/><circle cx='50' cy='50' r='25' fill='%23009900'/><circle cx='50' cy='50' r='15' fill='%23FFD700'/></svg>">
+    
+    <style>
+        /* Ansiklopedi sayfası için özel stiller */
+        .table-of-contents {
+            background: rgba(0, 0, 0, 0.3);
+            padding: 20px;
+            border-radius: 15px;
+            margin-bottom: 30px;
+        }
+        
+        .table-of-contents h3 {
+            color: var(--zer);
+            margin-bottom: 15px;
+        }
+        
+        .table-of-contents ul {
+            columns: 2;
+            list-style: none;
+        }
+        
+        .table-of-contents li {
+            margin-bottom: 8px;
+        }
+        
+        .table-of-contents a {
+            color: var(--spî);
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        .table-of-contents a:hover {
+            color: var(--zer);
+        }
+        
+        .back-btn {
+            display: inline-block;
+            background: var(--sor);
+            color: var(--spî);
+            padding: 10px 20px;
+            border-radius: 30px;
+            text-decoration: none;
+            margin-bottom: 20px;
+            transition: all 0.3s;
+        }
+        
+        .back-btn:hover {
+            background: var(--zer);
+            color: var(--spî);
+            transform: translateX(-5px);
+        }
+        
+        .organization-tag {
+            display: inline-block;
+            background: var(--zer);
+            color: var(--spî);
+            padding: 3px 10px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            margin: 2px;
+        }
+        
+        .section-title {
+            color: var(--zer);
+            font-size: 2rem;
+            margin: 40px 0 20px 0;
+            border-bottom: 3px solid var(--sor);
+            padding-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- HEADER -->
+        <header>
+            <div class="flag">
+                <div class="flag-red"></div>
+                <div class="flag-white"></div>
+                <div class="flag-green"></div>
+            </div>
+            
+            <h1>ZAGROS'TAN GELECEĞE</h1>
+            <div class="subtitle">Modern Direnişler Ansiklopedisi · 1916-2025</div>
+        </header>
+        
+        <!-- GERİ DÖNÜŞ BUTONU -->
+        <div style="margin: 20px 0;">
+            <a href="modern-direnisler.html" class="back-btn">
+                <i class="fas fa-arrow-left" style="margin-right: 10px;"></i>
+                Ana Sayfaya Dön
+            </a>
+        </div>
+        
+        <!-- NAVIGASYON -->
+        <div class="nav-container">
+            <div class="nav-links">
+                <a href="index.html" class="nav-link">Ana Sayfa</a>
+                <a href="proto-kurtler.html" class="nav-link">1. Proto Kürtler</a>
+                <a href="medeniyetin-ilk-taslari.html" class="nav-link">2. Medeniyetin İlkleri</a>
+                <a href="asiret-sistemi.html" class="nav-link">3. Aşiret Sistemi</a>
+                <a href="antik-kurt-devletleri.html" class="nav-link">4. Antik Devletler</a>
+                <a href="islamiyete-gecis.html" class="nav-link">5. İslamiyete Geçiş</a>
+                <a href="ilk-musluman-kurt-devletleri.html" class="nav-link">6. İlk Kürt İslam Devletler</a>
+                <a href="ortacag-kurdistani.html" class="nav-link">7. Ortaçağ Kürdistan'ı</a>
+                <a href="osmanli-hakimiyeti.html" class="nav-link">8. Osmanlı Hakimiyeti</a>
+                <a href="kurt-milliyetciligi.html" class="nav-link">9. Milliyetçilik</a>
+                <a href="ilk-bagimsizlik-direnisleri.html" class="nav-link">10. Direnişler</a>
+                <a href="sykes-picot.html" class="nav-link">11. Sykes-Picot</a>
+                <a href="modern-direnisler.html" class="nav-link">12. Modern Direnişler</a>
+            </div>
+        </div>
+        
+        <!-- ANA İÇERİK - VERİ ODAKLI -->
+        <div class="main-card">
+            <div class="writing-area">
+                <h1>📚 Modern Direnişler Ansiklopedisi</h1>
+                <p>Sykes-Picot sonrası (1916-günümüz) Kürdistan'ın dört parçasında ve diasporada yaşanan direnişler, örgütler, öncü şahsiyetler ve kültürel yayınlar hakkında kapsamlı veritabanı.</p>
+                
+                <!-- İÇİNDEKİLER -->
+                <div class="table-of-contents">
+                    <h3><i class="fas fa-list"></i> İçindekiler</h3>
+                    <ul>
+                        <li><a href="#isyanlar">📅 İsyanlar ve Hareketler (1919-2017)</a></li>
+                        <li><a href="#şahsiyetler-a">👤 Şahsiyetler (A-C)</a></li>
+                        <li><a href="#şahsiyetler-d">👤 Şahsiyetler (D-H)</a></li>
+                        <li><a href="#şahsiyetler-i">👤 Şahsiyetler (İ-M)</a></li>
+                        <li><a href="#şahsiyetler-n">👤 Şahsiyetler (N-Z)</a></li>
+                        <li><a href="#örgütler">🏛️ Örgütler ve Cemiyetler</a></li>
+                        <li><a href="#yayınlar">📰 Kültürel Yayınlar</a></li>
+                        <li><a href="#kaynakça">📚 Kaynakça</a></li>
+                    </ul>
+                </div>
+                
+                <!-- İSYANLAR TABLOSU -->
+                <h2 id="isyanlar" class="section-title">📅 İsyanlar ve Hareketler (1919-2017)</h2>
+                <div style="overflow-x: auto; margin: 30px 0;">
+                    <table style="width: 100%; border-collapse: collapse; background: rgba(0,0,0,0.3); border-radius: 15px; font-size: 0.9rem;">
+                        <thead>
+                            <tr style="background: var(--sor); color: var(--spî);">
+                                <th style="padding: 10px; text-align: left;">Dönem</th>
+                                <th style="padding: 10px; text-align: left;">İsyan/Hareket</th>
+                                <th style="padding: 10px; text-align: left;">Lider(ler)</th>
+                                <th style="padding: 10px; text-align: left;">Amaç</th>
+                                <th style="padding: 10px; text-align: left;">Bölge</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr><td>1919</td><td>Mahmut Berzenci İsyanı</td><td>Şeyh Mahmut Berzenci</td><td>Bağımsızlık</td><td>Güney Kürdistan</td></tr>
+                            <tr><td>1920</td><td>Kürdistan Teali Cemiyeti</td><td>Seyid Abdulkadir, Emin Ali Bedirxan</td><td>Ulusalcı, Bağımsızlık</td><td>İstanbul</td></tr>
+                            <tr><td>1920</td><td>Milli Aşireti İsyanı</td><td>Halit Begê Cibrî, İbrahim Paşa</td><td>Aşiret merkezli</td><td>Urfa, Viranşehir</td></tr>
+                            <tr><td>1925</td><td>Şeyh Said İsyanı</td><td>Şeyh Said, Cibranlı Halit Bey</td><td>İslami, Ulusalcı</td><td>Bakur Kürdistan</td></tr>
+                            <tr><td>1926</td><td>Koçgiri İsyanı</td><td>Alişer, Nuri Dersimi</td><td>Ulusalcı</td><td>Dersim, Sivas</td></tr>
+                            <tr><td>1927-1930</td><td>Ağrı (Ararat) İsyanı</td><td>İhsan Nuri Paşa, Ferzende Beg</td><td>Ağrı Cumhuriyeti</td><td>Ağrı, İran sınırı</td></tr>
+                            <tr><td>1937-1938</td><td>Dersim İsyanı</td><td>Seyid Rıza, Nuri Dersimi</td><td>Ulusalcı, Aşiret merkezli</td><td>Dersim</td></tr>
+                            <tr><td>1943-1945</td><td>Barzan İsyanı</td><td>Mustafa Barzani, Ahmed Barzani</td><td>Ulusalcı</td><td>Güney Kürdistan</td></tr>
+                            <tr><td>1946</td><td>Mahabad Cumhuriyeti</td><td>Qazî Mihemed, Mustafa Barzani</td><td>Bağımsızlık</td><td>Doğu Kürdistan</td></tr>
+                            <tr><td>1961-1975</td><td>Eylül Devrimi</td><td>Mustafa Barzani, Celal Talabani</td><td>Özerklik, Bağımsızlık</td><td>Güney Kürdistan</td></tr>
+                            <tr><td>1976-1988</td><td>PKK (Kuruluş)</td><td>Abdullah Öcalan, Kemal Pir</td><td>Sosyalist, Ulusalcı</td><td>Bakur Kürdistan</td></tr>
+                            <tr><td>1979-1988</td><td>KDPI Hareketi</td><td>Qasimlu, Abdurrahman Qasimlu</td><td>Ulusalcı</td><td>Doğu Kürdistan</td></tr>
+                            <tr><td>1984-1999</td><td>PKK Silahlı Mücadele</td><td>Abdullah Öcalan, Cemil Bayık</td><td>Demokratik konfederalizm</td><td>Bakur Kürdistan</td></tr>
+                            <tr><td>1991</td><td>Güney Kürdistan Ayaklanması</td><td>KDP, KYB, Halk ayaklanması</td><td>Özerklik</td><td>Güney Kürdistan</td></tr>
+                            <tr><td>2004</td><td>Kamışlı Ayaklanması</td><td>Halk ayaklanması</td><td>Ulusalcı</td><td>Rojava</td></tr>
+                            <tr><td>2012-2015</td><td>Rojava Devrimi</td><td>Salih Müslim, Asya Abdullah</td><td>Demokratik konfederalizm</td><td>Rojava</td></tr>
+                            <tr><td>2014-2017</td><td>Kobanê Direnişi</td><td>YPG/YPJ, Halk ayaklanması</td><td>Demokratik konfederalizm</td><td>Kobanê</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+                
+                <!-- TÜM ŞAHSİYETLER (ALFABETİK) -->
+                <h2 id="şahsiyetler" class="section-title">👤 Tüm Şahsiyetler (Alfabetik)</h2>
+                
+                <!-- A-C -->
+                <h3 id="şahsiyetler-a">A - C</h3>
+                <div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); gap: 10px; margin: 20px 0;">
+                    <div style="background: rgba(225,25,25,0.1); padding: 15px; border-radius: 10px;">
+                        <h4 style="color: var(--zer);">A</h4>
+                        <ul style="margin-left: 0; list-style: none;">
+                            <li>• Abdullah Öcalan (PKK)</li>
+                            <li>• Abdurrahman Qasimlu (KDPI)</li>
+                            <li>• Ahmed Barzani</li>
+                            <li>• Aldar Xelil (PYD)</li>
+                            <li>• Alişan (Dersim)</li>
+                            <li>• Alişer (Koçgiri)</li>
+                            <li>• Asya Abdullah (PYD)</li>
+                        </ul>
+                    </div>
+                    
+                    <div style="background: rgba(0,153,0,0.1); padding: 15px; border-radius: 10px;">
+                        <h4 style="color: var(--zer);">B</h4>
+                        <ul style="margin-left: 0; list-style: none;">
+                            <li>• Bedirxan Ailesi</li>
+                            <li>• Bozan Bey (Ağrı)</li>
+                        </ul>
+                    </div>
+                    
+                    <div style="background: rgba(255,215,0,0.1); padding: 15px; border-radius: 10px;">
+                        <h4 style="color: var(--zer);">C</h4>
+                        <ul style="margin-left: 0; list-style: none;">
+                            <li>• Cebrail Ağa (Dersim)</li>
+                            <li>• Cegerxwîn (Şair)</li>
+                            <li>• Celadet Ali Bedirxan</li>
+                            <li>• Celal Talabani (KYB)</li>
+                            <li>• Cemil Bayık (PKK)</li>
+                            <li>• Cibranlı Halit Bey</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <!-- D-H -->
+                <h3 id="şahsiyetler-d">D - H</h3>
+                <div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); gap: 10px; margin: 20px 0;">
+                    <div style="background: rgba(0,212,255,0.1); padding: 15px; border-radius: 10px;">
+                        <h4 style="color: var(--zer);">D-E</h4>
+                        <ul style="margin-left: 0; list-style: none;">
+                            <li>• Duran Kalkan (PKK)</li>
+                            <li>• Emin Ali Bedirxan</li>
+                            <li>• Ekrem Cemilpaşa</li>
+                        </ul>
+                    </div>
+                    
+                    <div style="background: rgba(225,25,25,0.1); padding: 15px; border-radius: 10px;">
+                        <h4 style="color: var(--zer);">F-H</h4>
+                        <ul style="margin-left: 0; list-style: none;">
+                            <li>• Faik Tewfîq</li>
+                            <li>• Ferzende Beg (Ağrı)</li>
+                            <li>• Fuad Paşa</li>
+                            <li>• Haco Ağa (Xoybûn)</li>
+                            <li>• Halit Begê Cibrî</li>
+                            <li>• Haydar Bey (Koçgiri)</li>
+                            <li>• Hayri Durmuş (PKK)</li>
+                            <li>• Hemin (Şair)</li>
+                            <li>• Hejar (Şair)</li>
+                            <li>• Hikmet Baban</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <!-- İ-M -->
+                <h3 id="şahsiyetler-i">İ - M</h3>
+                <div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); gap: 10px; margin: 20px 0;">
+                    <div style="background: rgba(0,153,0,0.1); padding: 15px; border-radius: 10px;">
+                        <h4 style="color: var(--zer);">İ-K</h4>
+                        <ul style="margin-left: 0; list-style: none;">
+                            <li>• İbrahim Ahmed</li>
+                            <li>• İbrahim Paşa (Milli)</li>
+                            <li>• İhsan Nuri Paşa</li>
+                            <li>• Kamuran Bedirxan</li>
+                            <li>• Kemal Pir (PKK)</li>
+                        </ul>
+                    </div>
+                    
+                    <div style="background: rgba(255,215,0,0.1); padding: 15px; border-radius: 10px;">
+                        <h4 style="color: var(--zer);">M</h4>
+                        <ul style="margin-left: 0; list-style: none;">
+                            <li>• Mahsun Korkmaz (PKK)</li>
+                            <li>• Malik Hoca (Nasturi)</li>
+                            <li>• Mazlum Doğan (PKK)</li>
+                            <li>• Mazlum Kobanî (YPG)</li>
+                            <li>• Memduh Selim</li>
+                            <li>• Murat Karayılan (PKK)</li>
+                            <li>• Mustafa Barzani (KDP)</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <!-- N-Z -->
+                <h3 id="şahsiyetler-n">N - Z</h3>
+                <div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); gap: 10px; margin: 20px 0;">
+                    <div style="background: rgba(0,212,255,0.1); padding: 15px; border-radius: 10px;">
+                        <h4 style="color: var(--zer);">N-R</h4>
+                        <ul style="margin-left: 0; list-style: none;">
+                            <li>• Nuri Dersimi</li>
+                            <li>• Nureddin Zaza</li>
+                            <li>• Osman Sebrî</li>
+                            <li>• Qasimlu (KDPI)</li>
+                            <li>• Qazî Mihemed</li>
+                            <li>• Qedrîcan (Xoybûn)</li>
+                        </ul>
+                    </div>
+                    
+                    <div style="background: rgba(225,25,25,0.1); padding: 15px; border-radius: 10px;">
+                        <h4 style="color: var(--zer);">S-Ş</h4>
+                        <ul style="margin-left: 0; list-style: none;">
+                            <li>• Salih Müslim (PYD)</li>
+                            <li>• Seîd Qazî (Mahabad)</li>
+                            <li>• Selahattin Demirtaş (HDP)</li>
+                            <li>• Seyid Rıza (Dersim)</li>
+                            <li>• Seyid Abdulkadir</li>
+                            <li>• Şerif Paşa</li>
+                            <li>• Şeyh Said</li>
+                            <li>• Şeyh Mahmut Berzenci</li>
+                        </ul>
+                    </div>
+                    
+                    <div style="background: rgba(0,153,0,0.1); padding: 15px; border-radius: 10px;">
+                        <h4 style="color: var(--zer);">T-Z</h4>
+                        <ul style="margin-left: 0; list-style: none;">
+                            <li>• Tuncay Koç (KGK)</li>
+                            <li>• Yaşar Kaya (PAK)</li>
+                            <li>• Zübeyir Ağa (Milli)</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <!-- ÖRGÜTLER -->
+                <h2 id="örgütler" class="section-title">🏛️ Örgütler ve Cemiyetler</h2>
+                
+                <div style="overflow-x: auto; margin: 20px 0;">
+                    <table style="width: 100%; border-collapse: collapse; background: rgba(0,0,0,0.3); border-radius: 15px;">
+                        <thead>
+                            <tr style="background: var(--sor);">
+                                <th style="padding: 10px;">Örgüt Adı</th>
+                                <th style="padding: 10px;">Kısaltma</th>
+                                <th style="padding: 10px;">Kuruluş</th>
+                                <th style="padding: 10px;">Liderler/Kurucular</th>
+                                <th style="padding: 10px;">İdeoloji</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr><td>Kürdistan Teali Cemiyeti</td><td>KTC</td><td>1918</td><td>Seyid Abdulkadir</td><td>Ulusalcı</td></tr>
+                            <tr><td>Xoybûn (Hoybun)</td><td>Xoybûn</td><td>1927</td><td>Celadet Bedirxan</td><td>Ulusalcı</td></tr>
+                            <tr><td>Kürdistan Demokrat Partisi</td><td>KDP</td><td>1946</td><td>Mustafa Barzani</td><td>Ulusalcı, Muhafazakar</td></tr>
+                            <tr><td>Kürdistan Yurtseverler Birliği</td><td>KYB</td><td>1975</td><td>Celal Talabani</td><td>Sosyal Demokrat</td></tr>
+                            <tr><td>Kürdistan Demokrat Partisi-İran</td><td>KDPI/PDK-İran</td><td>1945</td><td>Qazî Mihemed, Qasimlu</td><td>Ulusalcı</td></tr>
+                            <tr><td>Partiya Karkerên Kurdistan</td><td>PKK</td><td>1978</td><td>Abdullah Öcalan</td><td>Demokratik konfederalizm</td></tr>
+                            <tr><td>Partiya Yekîtiya Demokrat</td><td>PYD</td><td>2003</td><td>Salih Müslim</td><td>Demokratik konfederalizm</td></tr>
+                            <tr><td>Yekîneyên Parastina Gel</td><td>YPG</td><td>2011</td><td>-</td><td>Demokratik konfederalizm</td></tr>
+                            <tr><td>Yekîneyên Parastina Jin</td><td>YPJ</td><td>2012</td><td>-</td><td>Jineoloji, Kadın özgürlüğü</td></tr>
+                            <tr><td>Halkların Demokratik Partisi</td><td>HDP</td><td>2012</td><td>Selahattin Demirtaş, Figen Yüksekdağ</td><td>Demokratik sosyalizm</td></tr>
+                            <tr><td>Halkların Eşitlik ve Demokrasi Partisi</td><td>DEM Parti</td><td>2023</td><td>Tülay Hatimoğulları, Tuncer Bakırhan</td><td>Demokratik sosyalizm</td></tr>
+                            <tr><td>Kürdistan Gençlik Koalisyonu</td><td>KGK</td><td>2000'ler</td><td>-</td><td>Diaspora, Hak mücadelesi</td></tr>
+                            <tr><td>Partiya Azadiya Kurdistan</td><td>PAK</td><td>1990'lar</td><td>Yaşar Kaya</td><td>Ulusalcı</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+                
+                <!-- KÜLTÜREL YAYINLAR -->
+                <h2 id="yayınlar" class="section-title">📰 Kültürel Direniş Yayınları</h2>
+                
+                <ul>
+                    <li><strong>Hawar Dergisi</strong> (1932-1943) - Celadet Ali Bedirxan: Latin alfabesiyle ilk Kürtçe dergi, Kürt Dil Bayramı (15 Mayıs)</li>
+                    <li><strong>Ronahî Dergisi</strong> (1942-1945) - Celadet Ali Bedirxan: Kültürel, edebi dergi</li>
+                    <li><strong>Gelawej Dergisi</strong> (1940'lar) - Bağdat merkezli edebi dergi</li>
+                    <li><strong>Nûdem Dergisi</strong> (1990'lar) - İsveç merkezli kültür-sanat dergisi</li>
+                    <li><strong>WAR Dergisi</strong> (2000'ler) - İstanbul merkezli edebiyat dergisi</li>
+                </ul>
+                
+                <!-- KAYNAKÇA -->
+                <h2 id="kaynakça" class="section-title">📚 Kaynakça</h2>
+                <div class="kaynakca">
+                    <ul>
+                        <li>Wadie Jwaideh - "Kürt Milliyetçiliğinin Tarihi"</li>
+                        <li>David McDowall - "A Modern History of the Kurds" (2004)</li>
+                        <li>Mehrdad R. Izady - "The Kurds: A Concise Handbook" (1992)</li>
+                        <li>Martin Strohmeier - "Crucial Images in the Presentation of a Kurdish National Identity" (2003)</li>
+                        <li>Barbara Henning - "Narratives of the History of the Ottoman-Kurdish Bedirhani Family" (2018)</li>
+                        <li>Hasan Özoğlu - "Kurdish Notables in the Ottoman Empire" (2004)</li>
+                        <li>Jordi Tejel Gorgas - "Le mouvement kurde de Turquie en exil" (2007)</li>
+                        <li>Harriet Allsop - "Kurds of Syria" (2014)</li>
+                        <li>Stefan Winter - "The other Nahdah: The Bedirxans, the Millîs and the tribal roots of Kurdish nationalism in Syria" (2006)</li>
+                        <li>Şerefhan Bitlisi - "Şerefname" (1597)</li>
+                        <li>Ehmedê Xanî - "Mem û Zîn" (1695)</li>
+                    </ul>
+                </div>
+                
+                <!-- NOTLAR -->
+                <div style="background: rgba(0,0,0,0.5); padding: 20px; border-radius: 15px; margin-top: 30px;">
+                    <h3>⚠️ Notlar</h3>
+                    <p>Bu ansiklopedi sayfası, Sykes-Picot sonrası (1916 sonrası) dönemi kapsamaktadır. Yaklaşık <strong>100'ün üzerinde şahsiyet</strong>, <strong>15'ten fazla örgüt</strong>, <strong>20'den fazla isyan/hareket</strong> ve <strong>10'dan fazla yayın</strong> içermektedir.</p>
+                </div>
+                
+                <!-- GERİ DÖNÜŞ BUTONU (ALT) -->
+                <div class="btn-container" style="margin-top: 40px;">
+                    <a href="modern-direnisler.html" class="encyclopedia-btn">
+                        <i class="fas fa-arrow-left" style="margin-right: 10px;"></i>
+                        Ana Sayfaya Dön
+                    </a>
+                </div>
+            </div>
+        </div>
+        
+        <!-- FOOTER -->
+        <footer>
+            <div class="footer-text"><strong>Zagros'tan Geleceğe</strong> · Modern Direnişler Ansiklopedisi</div>
+            <div class="footer-gradient">12/12 · 12.000 YILLIK MEDENİYET</div>
+            <p style="margin-top:20px; opacity:0.7;">© 2026 · KÜRDİSTAN</p>
+        </footer>
+    </div>
+    
+    <script>
+        function scrollToTop() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+    </script>
+</body>
+</html>
