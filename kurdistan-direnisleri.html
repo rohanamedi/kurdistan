@@ -129,6 +129,12 @@
             border-radius: 15px;
             text-align: center;
             border: 1px dashed var(--sor);
+            transition: all 0.3s;
+        }
+        
+        .memory-item:hover {
+            background: rgba(225, 25, 25, 0.2);
+            transform: scale(1.02);
         }
         
         .memory-item i {
@@ -140,6 +146,31 @@
         .memory-item h4 {
             color: var(--sor);
             margin-bottom: 10px;
+            font-size: 1.2rem;
+        }
+        
+        .memory-item p {
+            font-size: 0.9rem;
+            opacity: 0.9;
+        }
+        
+        .memory-date {
+            display: inline-block;
+            background: var(--sor);
+            color: var(--spî);
+            padding: 3px 10px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            margin-top: 10px;
+        }
+        
+        .warning-note {
+            background: rgba(225, 25, 25, 0.3);
+            border: 2px solid var(--sor);
+            padding: 15px;
+            border-radius: 15px;
+            margin: 30px 0;
+            text-align: center;
         }
     </style>
 </head>
@@ -154,7 +185,7 @@
             </div>
             
             <h1>ZAGROS'TAN GELECEĞE</h1>
-            <div class="subtitle">12. Modern Direnişler · 1916'dan Günümüze</div>
+            <div class="subtitle">12. Modern Direnişler · 1916-1980 Arası Geleneksel Direniş</div>
         </header>
         
         <!-- NAVIGASYON -->
@@ -188,97 +219,120 @@
             </div>
         </div>
         
-        <!-- ANA İÇERİK - ANLATI ODAKLI -->
+        <!-- ANA İÇERİK - ANLATI ODAKLI (1980 ÖNCESİ) -->
         <div class="main-card">
             <div class="writing-area">
                 <h1>12. Modern Direnişler</h1>
-                <h2>Sykes-Picot Sonrası: Direnişin Felsefesi, Kültürü ve Bedeli</h2>
+                <h2>Sykes-Picot Sonrası: Ağa, Bey, Şeyh Öncülüğünde Bağımsızlık Savaşı (1916-1980)</h2>
+                
+                <!-- UYARI NOTU: 1980 SONRASI İÇİN YÖNLENDİRME -->
+                <div class="warning-note">
+                    <i class="fas fa-info-circle" style="color: var(--zer); font-size: 1.5rem; margin-right: 10px;"></i>
+                    <strong>Not:</strong> Bu sayfa, 1980 öncesi geleneksel Kürt direnişlerini (Ağa, Bey, Şeyh liderliğindeki hareketler) kapsamaktadır. 
+                    1980 sonrası PKK, Rojava Devrimi, Kobanê Direnişi ve güncel siyasi partiler (HDP, DEM Parti vb.) için 
+                    <a href="modern-direnisler-ansiklopedi.html" style="color: var(--zer); text-decoration: underline; font-weight: bold;">Ansiklopedi Sayfası</a>'nı ziyaret ediniz.
+                </div>
                 
                 <!-- GİRİŞ -->
-                <p>Sykes-Picot'nun 1916'da çizdiği yapay sınırlar, Kürdistan'ı beş parçaya bölerken, aslında bir milletin hafızasında silinmez bir travma yarattı. Ancak bu travma, aynı zamanda modern Kürt direnişinin de doğum sancısı oldu. Bir asrı aşkın süredir devam eden bu direniş, sadece silahlı mücadeleden ibaret değil; bir varoluş, kimlik ve gelecek inşa etme mücadelesidir.</p>
+                <p>Sykes-Picot'nun 1916'da çizdiği yapay sınırlar, Kürdistan'ı dört parçaya bölerken, aynı zamanda modern Kürt direnişinin de doğum sancısı oldu. 1916'dan 1980'e kadar uzanan bu dönem, direnişin geleneksel kodlarla şekillendiği; ağanın, beyin ve şeyhin önderliğinde bağımsız Kürdistan idealinin peşinde koşulduğu bir dönemdir. Bu, sadece silahlı bir mücadele değil, aynı zamanda bir varoluş, kimlik ve gelecek inşa etme mücadelesiydi.</p>
                 
                 <div class="highlight-quote">
                     <i class="fas fa-quote-left" style="opacity: 0.5; margin-right: 10px;"></i>
-                    Dağların özgürlüğü, dillerin direnişi, halkların kardeşliği...
+                    Ağasıyla, beyiyle, şeyhiyle; dağlarıyla, ovalarıyla; tek bir yumruk oldu Kürdistan. 
                     <i class="fas fa-quote-right" style="opacity: 0.5; margin-left: 10px;"></i>
                 </div>
                 
-                <!-- İSTATİSTİK KUTULARI -->
+                <!-- İSTATİSTİK KUTULARI (1980 ÖNCESİ) -->
                 <div class="stats-container">
+                    <div class="stat-card">
+                        <div class="stat-number">1916</div>
+                        <div class="stat-label">Sykes-Picot</div>
+                    </div>
                     <div class="stat-card">
                         <div class="stat-number">20+</div>
                         <div class="stat-label">Büyük İsyan</div>
                     </div>
                     <div class="stat-card">
-                        <div class="stat-number">100+</div>
+                        <div class="stat-number">80+</div>
                         <div class="stat-label">Öncü Şahsiyet</div>
                     </div>
                     <div class="stat-card">
-                        <div class="stat-number">15+</div>
-                        <div class="stat-label">Örgüt/Cemiyet</div>
-                    </div>
-                    <div class="stat-card">
-                        <div class="stat-number">4</div>
-                        <div class="stat-label">Kıtaya Yayılan Diaspora</div>
+                        <div class="stat-number">10+</div>
+                        <div class="stat-label">Geleneksel Örgüt</div>
                     </div>
                 </div>
                 
-                <!-- 1. DİRENİŞİN FELSEFESİ -->
+                <!-- 1. DİRENİŞİN FELSEFESİ (AĞA-BEY-ŞEYH VE BAĞIMSIZLIK) -->
                 <div class="narrative-section">
                     <h3>
-                        <i class="fas fa-mountain"></i>
-                        Direnişin Felsefesi
+                        <i class="fas fa-crown"></i>
+                        Direnişin Felsefesi: Ağa, Bey, Şeyh ve Bağımsız Kürdistan
                     </h3>
-                    <p>Zagros dağları sadece bir coğrafya değil, aynı zamanda bir hafıza mekânıdır. Yüzyıllardır Kürtler için sığınak, özgürlük ve direnişin simgesi olmuştur. Sykes-Picot sonrası dayatılan ulus-devlet modelleri, bu dağların eteklerinde yaşayan halkları "azınlık" statüsüne mahkûm etti. İşte modern direnişin felsefesi tam da burada şekillendi: "Biz azınlık değil, bir halkız."</p>
-                    <p>Bu felsefe, sadece toprak bütünlüğünü değil, aynı zamanda kültürel kimliği, dili ve inancı da korumayı hedefliyordu. Her isyan, aslında bir varoluş manifestosuydu. Şeyh Said'den Qazî Mihemed'e, Seyid Rıza'dan Abdullah Öcalan'a kadar her lider, bu felsefenin farklı bir veçhesini temsil etti.</p>
+                    <p>Zagros dağları sadece bir coğrafya değil, aynı zamanda bir direniş felsefesinin beşiğidir. Bu felsefenin üç temel sacayağı vardı: <strong>Ağa, Bey ve Şeyh.</strong></p>
+                    <p><strong>Ağalar</strong>, toprağın ve aşiretin gücünü temsil ediyordu. Onlar, binlerce yıllık aşiret sisteminin direnişe eklemlenmiş haliydi. <strong>Beyler</strong>, siyasi örgütlenmenin ve yönetim geleneğinin mirasçılarıydı. Bedirxaniler, Cemilpaşazadeler gibi aileler, yüzyılların devlet geleneğini bağımsızlık mücadelesine taşıdı. <strong>Şeyhler</strong> ise, dini otoriteyi ve halkın manevi duygularını harekete geçiren güçtü. Şeyh Said'den Seyid Rıza'ya kadar, İslami motiflerle harmanlanmış bir direnişin öncüleri oldular.</p>
+                    <p>Bu üçlü sacayağı, farklı ideolojilere sahip olsalar da ortak bir hedefte birleşiyordu: <strong>Bağımsız Kürdistan.</strong> Kimi zaman Şeyh Said'in "Muhammed'in dinini kurtarmak" söylemiyle, kimi zaman Qazî Mihemed'in "Kürdistan neresidir?" sorusuyla, kimi zaman da Mustafa Barzani'nin "Kürdistan bayrağı" idealiyle ifade bulan bu hedef, 1916'dan 1980'e kadar tüm direnişlerin ortak paydasıydı.</p>
                 </div>
                 
-                <!-- 2. KÜLTÜREL DİRENİŞ (EN GÜÇLÜ SİLAH) -->
+                <!-- 2. KÜLTÜREL DİRENİŞ (DİL VE EDEBİYAT) -->
                 <div class="narrative-section">
                     <h3>
                         <i class="fas fa-book-open"></i>
-                        Kültürel Direniş: En Güçlü Silah
+                        Kültürel Direniş: Dilin ve Hafızanın İnşası
                     </h3>
-                    <p>Belki de en büyük direniş, dilin ve kültürün hayatta kalma mücadelesiydi. 1932'de Celadet Ali Bedirxan'ın Şam'da çıkardığı <strong>Hawar dergisi</strong>, Kürtçe'nin Latin alfabesiyle yazılmasının önünü açarak bir dönüm noktası oldu. Bu, sadece bir alfabe değişikliği değil, aynı zamanda modern Kürt kimliğinin inşasında atılan en büyük adımlardan biriydi.</p>
-                    <p>Dengbêjler, asırlık destanları ve ağıtlarıyla direnişin sözlü tarihçileri oldu. Yasaklı dillerde söylenen türküler, nesilden nesile aktarılan birer umut meşalesiydi. Günümüzde HDP, DEM Parti gibi siyasi oluşumlar ve YPG/YPJ gibi askeri yapılar, bu kültürel direnişin farklı sahalardaki tezahürleri olarak görülebilir.</p>
+                    <p>Silahlı direnişin yanında, belki de daha kalıcı bir direniş biçimi vardı: Kültürel direniş. 1932'de Celadet Ali Bedirxan'ın Şam'da çıkardığı <strong>Hawar dergisi</strong>, Kürtçe'nin Latin alfabesiyle yazılmasının önünü açarak bir dönüm noktası oldu. Bu, sadece bir alfabe değişikliği değil, modern Kürt kimliğinin inşasında atılan en büyük adımlardan biriydi. Hawar, "çağrı" anlamına geliyordu ve gerçekten de bir millete yapılan çağrıydı.</p>
+                    <p>Dengbêjler, asırlık destanları ve ağıtlarıyla direnişin sözlü tarihçileri oldu. Mem û Zîn, Siyabend û Xecê gibi aşk destanları, aslında Kürtlüğün ve direnişin simgesel anlatılarıydı. Ehmedê Xanî'nin 1695'te yazdığı Mem û Zîn'deki "Eğer birleşik olsaydı Kürtler, tüm dünya onlara boyun eğerdi" mısraları, yüzyıllar sonra hala direnişin manifestosu olarak okunuyordu.</p>
                     
                     <div style="background: rgba(0,0,0,0.5); padding: 15px; border-radius: 10px; margin-top: 15px;">
-                        <p><i class="fas fa-newspaper" style="color: var(--zer); margin-right: 10px;"></i> <strong>Kültürel Direnişin Mihenk Taşları:</strong> Hawar (1932), Ronahî (1942), Kürt Enstitüleri, Mezopotamya Vakfı, Rojava'da anadilde eğitim.</p>
+                        <p><i class="fas fa-newspaper" style="color: var(--zer); margin-right: 10px;"></i> <strong>Kültürel Direnişin Mihenk Taşları (1980 Öncesi):</strong> Hawar (1932), Ronahî (1942), Celadet Bedirxan'ın dil çalışmaları, ilk Kürtçe gazeteler, Dengbêj evleri.</p>
                     </div>
                 </div>
                 
-                <!-- 3. SİYASİ DİRENİŞ VE BEDELİ -->
+                <!-- 3. SİYASİ DİRENİŞ VE BEDELİ (1980 ÖNCESİ) -->
                 <div class="narrative-section">
                     <h3>
                         <i class="fas fa-dove"></i>
-                        Siyasi Direniş ve Bedeli
+                        Siyasi Direniş ve Bedeli: Her İsyan Bir Sonrakinin Temeli
                     </h3>
-                    <p>Her isyanın ardından gelen ağır bedeller, Kürtlerin kolektif hafızasında derin yaralar açtı. Mahabad Cumhuriyeti'nin 1946'da yıkılması ve Qazî Mihemed'in idamı, bir umudun da çöküşüydü. 1925'te Şeyh Said ve arkadaşlarının Diyarbakır'da idam edilmesi, 1937-38 Dersim Katliamı, binlerce köyün boşaltılması, zorunlu göçler... Bu acılar, direnişin hafızasını oluşturdu.</p>
-                    <p>Ancak her bedel, yeni bir direnişin de tohumlarını ekti. 1961'de Mustafa Barzani liderliğindeki Eylül Devrimi, 1978'de PKK'nin kuruluşu, 2012'de Rojava Devrimi ve Kobanê Direnişi, bu hafızanın birer ürünüydü. Günümüzde İran Kürdistanı'nda PDK-İran, diasporada KGK (Kürdistan Gençlik Koalisyonu) ve PAK (Partiya Azadiya Kurdistan) gibi oluşumlar, bu çok boyutlu mücadelenin farklı halkalarını temsil ediyor.</p>
+                    <p>Her isyanın ardından gelen ağır bedeller, Kürtlerin kolektif hafızasında derin yaralar açtı. 1925'te Şeyh Said ve arkadaşlarının Diyarbakır'da idam edilmesi, 1937-38 Dersim Katliamı, 1946'da Mahabad Cumhuriyeti'nin yıkılması ve Qazî Mihemed'in idamı, 1988'de Enfal Katliamı... Bu acılar, direnişin hafızasını oluşturdu ve her bedel, yeni bir direnişin de tohumlarını ekti.</p>
+                    <p>1927-1930 Ağrı (Ararat) İsyanı'nda İhsan Nuri Paşa'nın kurduğu kısa ömürlü cumhuriyet, 1946 Mahabad Cumhuriyeti'ne ilham verdi. Mahabad'ın yenilgisi ve Barzani'nin Sovyetler'e sığınması, 1961'deki Eylül Devrimi'ne giden yolu açtı. Her direniş, kendi yenilgisinden ders çıkararak bir sonrakine miras bıraktı.</p>
                 </div>
                 
-                <!-- HAFIZA KUTULARI -->
+                <!-- KOLEKTİF HAFIZADAN İZLER (GÜNCELLENMİŞ) -->
                 <h3>Kolektif Hafızadan İzler</h3>
                 <div class="memory-box">
                     <div class="memory-item">
-                        <i class="fas fa-calendar-alt"></i>
-                        <h4>15 Mayıs 1932</h4>
-                        <p>Hawar Dergisi yayın hayatına başladı. Bugün Kürt Dil Bayramı olarak kutlanır.</p>
+                        <i class="fas fa-user-tie"></i>
+                        <h4>Şêx Seîd</h4>
+                        <p>1925'te idam edildi. İslami motiflerle yükselen büyük Kürt isyanının lideri.</p>
+                        <span class="memory-date">15 Nisan 1925</span>
                     </div>
+                    
                     <div class="memory-item">
-                        <i class="fas fa-city"></i>
-                        <h4>22 Ocak 1946</h4>
-                        <p>Mahabad Cumhuriyeti ilan edildi. Modern Kürt siyasi tarihinin en önemli dönüm noktalarından biri.</p>
+                        <i class="fas fa-user-tie"></i>
+                        <h4>Seyid Rıza</h4>
+                        <p>1937'de idam edildi. Dersim direnişinin sembol ismi.</p>
+                        <span class="memory-date">15 Kasım 1937</span>
                     </div>
+                    
                     <div class="memory-item">
-                        <i class="fas fa-hand-fist"></i>
-                        <h4>15 Ağustos 1984</h4>
-                        <p>PKK'nın silahlı mücadele süreci başladı. Çatışmalar binlerce cana mal oldu.</p>
+                        <i class="fas fa-flag"></i>
+                        <h4>Qazî Mihemed</h4>
+                        <p>1946'da idam edildi. Mahabad Cumhuriyeti'nin kurucusu.</p>
+                        <span class="memory-date">31 Mart 1947</span>
                     </div>
+                    
                     <div class="memory-item">
-                        <i class="fas fa-dove"></i>
-                        <h4>2012-2015</h4>
-                        <p>Rojava Devrimi ve Demokratik Özerklik projesi, bölgesel ve küresel yankı uyandırdı.</p>
+                        <i class="fas fa-book"></i>
+                        <h4>Hawar</h4>
+                        <p>1932'de yayın hayatına başladı. Kürtçe'nin Latin alfabesiyle yazılmasının öncüsü.</p>
+                        <span class="memory-date">15 Mayıs 1932</span>
+                    </div>
+                    
+                    <div class="memory-item">
+                        <i class="fas fa-skull"></i>
+                        <h4>Enfal</h4>
+                        <p>1988'de 182.000 Kürt'ün kaybolduğu katliam. Hafızalarda hala taze.</p>
+                        <span class="memory-date">1988</span>
                     </div>
                 </div>
                 
@@ -291,17 +345,31 @@
                     </a>
                 </div>
                 
-                <p style="text-align: center; opacity: 0.8;">* Ansiklopedi sayfasında 20'den fazla isyan, 100'ün üzerinde şahsiyet ve 15'ten fazla örgüt hakkında detaylı tablolar bulabilirsiniz.</p>
+                <p style="text-align: center; opacity: 0.8;">* Ansiklopedi sayfasında 1980 sonrası PKK, Rojava Devrimi, Kobanê, HDP, DEM Parti, YPG/YPJ, KGK, PAK, PDK-İran gibi güncel oluşumlar da dahil olmak üzere tüm dönemlere ait detaylı tablolar bulabilirsiniz.</p>
                 
-                <!-- KAYNAKÇA -->
-                <h3 style="margin-top: 50px;">📚 Önerilen Kaynaklar</h3>
+                <!-- KAYNAKÇA (MAKALELER EKLENMİŞ) -->
+                <h3 style="margin-top: 50px;">📚 Kaynakça</h3>
                 <div class="kaynakca">
+                    <h4>Kitaplar</h4>
                     <ul>
                         <li>David McDowall - "A Modern History of the Kurds" (2004)</li>
-                        <li>Wadie Jwaideh - "Kürt Milliyetçiliğinin Tarihi"</li>
-                        <li>Martin van Bruinessen - "Ağa, Şeyh ve Devlet"</li>
-                        <li>Jordi Tejel Gorgas - "Suriye Kürtleri"</li>
+                        <li>Wadie Jwaideh - "Kürt Milliyetçiliğinin Tarihi" (1960)</li>
+                        <li>Martin van Bruinessen - "Ağa, Şeyh ve Devlet" (1978)</li>
                         <li>Mehrdad R. Izady - "The Kurds: A Concise Handbook" (1992)</li>
+                        <li>Jordi Tejel Gorgas - "Suriye Kürtleri" (2007)</li>
+                        <li>Şerefhan Bitlisi - "Şerefname" (1597)</li>
+                        <li>Ehmedê Xanî - "Mem û Zîn" (1695)</li>
+                    </ul>
+                    
+                    <h4 style="margin-top: 20px;">Makaleler</h4>
+                    <ul>
+                        <li>Martin Strohmeier - "Crucial Images in the Presentation of a Kurdish National Identity" (2003)</li>
+                        <li>Barbara Henning - "Narratives of the History of the Ottoman-Kurdish Bedirhani Family" (2018)</li>
+                        <li>Hasan Özoğlu - "Kurdish Notables in the Ottoman Empire" (2004)</li>
+                        <li>Stefan Winter - "The other Nahdah: The Bedirxans, the Millîs and the tribal roots of Kurdish nationalism in Syria" (2006)</li>
+                        <li>Robert Olson - "The Kurdish Rebellions of Sheikh Said (1925), Mt. Ararat (1930), and Dersim (1937-38): Their Impact on the Development of the Turkish Air Force and on Kurdish and Turkish Nationalism" (2000)</li>
+                        <li>Amir Hassanpour - "The Making of Kurdish Identity: Pre-20th Century Historical and Literary Sources" (1994)</li>
+                        <li>Kendal Nezan - "Kurdistan: The Forgotten Continent" (1978)</li>
                     </ul>
                 </div>
                 
@@ -334,7 +402,7 @@
         
         <!-- FOOTER -->
         <footer>
-            <div class="footer-text"><strong>Zagros'tan Geleceğe</strong> · Modern Direnişler</div>
+            <div class="footer-text"><strong>Zagros'tan Geleceğe</strong> · Modern Direnişler (1916-1980)</div>
             <div class="footer-gradient">12/12 · 12.000 YILLIK MEDENİYET</div>
             <p style="margin-top:20px; opacity:0.7;">© 2026 · KÜRDİSTAN</p>
         </footer>
