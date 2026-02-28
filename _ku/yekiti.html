@@ -1,0 +1,762 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Yekîtî | یەکێتی | Ulusal Kürdistan Birlik Platformu</title>
+    <!-- Fontlar: Unbounded (başlık) + Inter (içerik) - ilk versiyondaki gibi -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz@14..32&family=Unbounded:wght@300;500;700&display=swap" rel="stylesheet">
+    <!-- Font Awesome 6 -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        /* ---------- DEĞİŞKENLER ve GENEL ---------- */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --deep-forest: #0f2f1f;      /* Koyu yeşil - kökler */
+            --mountain-stone: #4a5b4e;    /* Gri-yeşil - kayalar */
+            --golden-sun: #d8a42b;        /* Altın sarısı - güneş */
+            --cream-cloud: #f7f4ed;        /* Krem - bulut */
+            --pure-white: #ffffff;
+            --soft-shadow: 0 20px 40px -12px rgba(15, 47, 31, 0.25);
+            --card-hover: 0 25px 50px -12px rgba(216, 164, 43, 0.35);
+        }
+
+        body {
+            background-color: var(--cream-cloud);
+            font-family: 'Inter', sans-serif;
+            color: #1a2a1f;
+            line-height: 1.5;
+        }
+
+        h1, h2, h3, h4, .nav-btn, .hero-header, .modal-title {
+            font-family: 'Unbounded', cursive;
+            letter-spacing: -0.02em;
+        }
+
+        h2 {
+            font-size: 2.8rem;
+            font-weight: 700;
+            color: var(--deep-forest);
+            margin-bottom: 2rem;
+            position: relative;
+            display: inline-block;
+        }
+
+        h2:after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 0;
+            width: 80px;
+            height: 5px;
+            background: var(--golden-sun);
+            border-radius: 10px;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        /* ---------- HEADER (ilk versiyondan esinlenme) ---------- */
+        .hero-header {
+            background: linear-gradient(145deg, var(--deep-forest) 0%, #1d4a2e 100%);
+            color: white;
+            padding: 4rem 1rem 6rem 1rem;
+            clip-path: polygon(0 0, 100% 0, 100% 90%, 0 100%);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-header::before {
+            content: "🏔️⚡";
+            font-size: 18rem;
+            position: absolute;
+            bottom: -50px;
+            right: 0;
+            opacity: 0.06;
+            transform: rotate(5deg);
+            color: var(--golden-sun);
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            text-align: center;
+        }
+
+        .hero-symbol {
+            font-size: 5rem;
+            line-height: 1;
+            margin-bottom: 0.5rem;
+            filter: drop-shadow(0 10px 15px rgba(0,0,0,0.4));
+        }
+
+        .hero-header h1 {
+            font-size: 5rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 6px;
+        }
+
+        .hero-header h1 span {
+            color: var(--golden-sun);
+            font-weight: 300;
+            font-size: 4rem;
+        }
+
+        .hero-header p {
+            font-size: 1.4rem;
+            max-width: 700px;
+            margin: 1.5rem auto 0;
+            opacity: 0.9;
+            font-weight: 300;
+            background: rgba(0,0,0,0.25);
+            padding: 0.8rem 2rem;
+            border-radius: 50px;
+            display: inline-block;
+            backdrop-filter: blur(5px);
+            border: 1px solid rgba(255,215,0,0.2);
+        }
+
+        /* ---------- NAVIGASYON (modern ve şık) ---------- */
+        .sticky-nav {
+            background: rgba(255, 255, 255, 0.85);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border-bottom: 1px solid rgba(216, 164, 43, 0.25);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            padding: 0.8rem 0;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+        }
+
+        .nav-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 0.5rem;
+            max-width: 1300px;
+            margin: 0 auto;
+            padding: 0 1rem;
+        }
+
+        .nav-btn {
+            background: transparent;
+            border: none;
+            padding: 0.9rem 1.8rem;
+            font-size: 0.95rem;
+            font-weight: 500;
+            color: var(--deep-forest);
+            border-radius: 40px;
+            cursor: pointer;
+            transition: all 0.25s ease;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            white-space: nowrap;
+            border: 1px solid transparent;
+        }
+
+        .nav-btn i {
+            color: var(--golden-sun);
+            font-size: 1.2rem;
+            transition: 0.2s;
+        }
+
+        .nav-btn:hover {
+            background: var(--golden-sun);
+            color: var(--deep-forest);
+            border-color: var(--golden-sun);
+            transform: translateY(-3px);
+        }
+
+        .nav-btn.active {
+            background: var(--deep-forest);
+            color: white;
+            border-color: var(--deep-forest);
+        }
+
+        .nav-btn.active i {
+            color: var(--golden-sun);
+        }
+
+        /* ---------- ANA İÇERİK ALANI (SPA) ---------- */
+        #content-area {
+            min-height: 60vh;
+            padding: 3rem 0 4rem 0;
+        }
+
+        .section {
+            display: none;
+            opacity: 0;
+        }
+
+        .section.active-section {
+            display: block;
+            opacity: 1;
+            animation: fadeSlide 0.5s ease;
+        }
+
+        @keyframes fadeSlide {
+            0% { opacity: 0; transform: translateY(15px); }
+            100% { opacity: 1; transform: translateY(0); }
+        }
+
+        /* ---------- MODERN KARTLAR (tıklanabilir) ---------- */
+        .grid-2, .grid-3, .grid-5 {
+            display: grid;
+            gap: 1.8rem;
+            margin: 2.5rem 0;
+        }
+
+        .grid-2 { grid-template-columns: repeat(2, 1fr); }
+        .grid-3 { grid-template-columns: repeat(3, 1fr); }
+        .grid-5 { 
+            grid-template-columns: repeat(5, 1fr); 
+        }
+
+        .clickable-card {
+            background: var(--pure-white);
+            border-radius: 30px;
+            padding: 2rem 1.5rem;
+            box-shadow: var(--soft-shadow);
+            border: 1px solid rgba(216, 164, 43, 0.2);
+            transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            cursor: pointer;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            min-height: 180px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .clickable-card:hover {
+            transform: translateY(-12px) scale(1.02);
+            border-color: var(--golden-sun);
+            box-shadow: var(--card-hover);
+        }
+
+        .clickable-card:active {
+            transform: scale(0.98);
+        }
+
+        .clickable-card .card-icon {
+            font-size: 3rem;
+            color: var(--golden-sun);
+            margin-bottom: 1rem;
+        }
+
+        .clickable-card h4 {
+            font-size: 1.8rem;
+            font-weight: 500;
+            color: var(--deep-forest);
+            margin-bottom: 0.8rem;
+        }
+
+        .clickable-card p {
+            color: var(--mountain-stone);
+            font-size: 0.95rem;
+            opacity: 0.8;
+        }
+
+        .card-badge {
+            background: var(--deep-forest);
+            color: white;
+            padding: 0.3rem 1rem;
+            border-radius: 30px;
+            font-size: 0.8rem;
+            margin-top: 1rem;
+            display: inline-block;
+        }
+
+        /* ---------- MODAL/POPUP TASARIMI ---------- */
+        .modal-overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(15, 47, 31, 0.85);
+            backdrop-filter: blur(8px);
+            z-index: 1000;
+            justify-content: center;
+            align-items: center;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .modal-overlay.active {
+            display: flex;
+            opacity: 1;
+        }
+
+        .modal-content {
+            background: var(--pure-white);
+            border-radius: 50px;
+            max-width: 600px;
+            width: 90%;
+            max-height: 80vh;
+            overflow-y: auto;
+            padding: 2.5rem;
+            position: relative;
+            box-shadow: 0 50px 80px -20px black;
+            border: 3px solid var(--golden-sun);
+            transform: scale(0.9);
+            transition: transform 0.3s ease;
+        }
+
+        .modal-overlay.active .modal-content {
+            transform: scale(1);
+        }
+
+        .modal-close {
+            position: absolute;
+            top: 1.5rem;
+            right: 1.8rem;
+            font-size: 2.5rem;
+            cursor: pointer;
+            color: var(--mountain-stone);
+            transition: 0.2s;
+            line-height: 1;
+            background: none;
+            border: none;
+        }
+
+        .modal-close:hover {
+            color: var(--golden-sun);
+            transform: rotate(90deg);
+        }
+
+        .modal-title {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--deep-forest);
+            margin-bottom: 1.5rem;
+            padding-right: 2rem;
+            border-bottom: 3px solid var(--golden-sun);
+            display: inline-block;
+        }
+
+        .modal-body {
+            color: #2d3b31;
+            font-size: 1.1rem;
+        }
+
+        .modal-body ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .modal-body li {
+            padding: 0.8rem 0;
+            border-bottom: 1px dashed #d1d9d2;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .modal-body li i {
+            color: var(--golden-sun);
+            width: 25px;
+            font-size: 1.3rem;
+        }
+
+        /* ---------- DİĞER STİLLER ---------- */
+        .pill {
+            display: inline-block;
+            background: var(--golden-sun);
+            color: var(--deep-forest);
+            padding: 0.3rem 1.2rem;
+            border-radius: 30px;
+            font-weight: 600;
+            font-size: 0.9rem;
+        }
+
+        .footer {
+            background: var(--deep-forest);
+            color: white;
+            text-align: center;
+            padding: 3rem 0;
+            clip-path: polygon(0 10%, 100% 0, 100% 100%, 0 100%);
+            margin-top: 3rem;
+        }
+
+        @media (max-width: 1000px) {
+            .grid-5 { grid-template-columns: repeat(2, 1fr); }
+            .grid-3 { grid-template-columns: repeat(2, 1fr); }
+        }
+
+        @media (max-width: 700px) {
+            .grid-2, .grid-3, .grid-5 { grid-template-columns: 1fr; }
+            .hero-header h1 { font-size: 3rem; }
+            .hero-header h1 span { font-size: 2.5rem; }
+        }
+    </style>
+</head>
+<body>
+    <!-- HEADER (ilk versiyonun güçlü duruşu) -->
+    <header class="hero-header">
+        <div class="hero-content">
+            <div class="hero-symbol">🏔️✨ یەکێتی</div>
+            <h1>Yekîtî <span>| یەکێتی</span></h1>
+            <p>Ulusal Kürdistan Birlik Platformu · Konfederal Demokratik Yapı</p>
+        </div>
+    </header>
+
+    <!-- MENÜ -->
+    <div class="sticky-nav">
+        <div class="nav-container">
+            <button class="nav-btn active" data-section="yapi"><i class="fas fa-sitemap"></i> Üst Çatı</button>
+            <button class="nav-btn" data-section="federeler"><i class="fas fa-handshake"></i> Federeler</button>
+            <button class="nav-btn" data-section="karar"><i class="fas fa-scale-balanced"></i> Karar Alma</button>
+            <button class="nav-btn" data-section="mali"><i class="fas fa-coins"></i> Mali Sistem</button>
+            <button class="nav-btn" data-section="etik"><i class="fas fa-dove"></i> Etik & Uzlaşı</button>
+            <button class="nav-btn" data-section="strateji"><i class="fas fa-chart-line"></i> 5 Yıl Planı</button>
+            <button class="nav-btn" data-section="hiyerarsi"><i class="fas fa-diagram-project"></i> Hiyerarşi</button>
+            <button class="nav-btn" data-section="kadro"><i class="fas fa-users"></i> Kadro</button>
+        </div>
+    </div>
+
+    <!-- İÇERİK ALANI (SPA) - Tüm kartlar burada -->
+    <div id="content-area" class="container">
+        <!-- 1. ÜST ÇATI -->
+        <section id="yapi" class="section active-section">
+            <span class="pill">Konfederal Mekanizma</span>
+            <h2>Üst Çatı</h2>
+            <div class="grid-2">
+                <div class="clickable-card" data-modal="modal-meclis">
+                    <div class="card-icon"><i class="fas fa-landmark"></i></div>
+                    <h4>Konfederal Meclis</h4>
+                    <p>Ana karar organı • Temsil 1-3/federasyon</p>
+                    <span class="card-badge">Detay için tıkla</span>
+                </div>
+                <div class="clickable-card" data-modal="modal-yurutme">
+                    <div class="card-icon"><i class="fas fa-people-arrows"></i></div>
+                    <h4>Yürütme Konseyi</h4>
+                    <p>7 üye • Günlük koordinasyon • Acil yetki</p>
+                    <span class="card-badge">Detay için tıkla</span>
+                </div>
+                <div class="clickable-card" data-modal="modal-denetim">
+                    <div class="card-icon"><i class="fas fa-shield-alt"></i></div>
+                    <h4>Denetim Kurulu</h4>
+                    <p>Bağımsız mali & etik denetim</p>
+                    <span class="card-badge">Detay için tıkla</span>
+                </div>
+                <div class="clickable-card" data-modal="modal-uzlasi">
+                    <div class="card-icon"><i class="fas fa-gavel"></i></div>
+                    <h4>Uzlaşı Komisyonu</h4>
+                    <p>Federeler arası arabuluculuk</p>
+                    <span class="card-badge">Detay için tıkla</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- 2. FEDERELER -->
+        <section id="federeler" class="section">
+            <span class="pill">12 Federasyon • 30+ Alt Birim</span>
+            <h2>Federeler</h2>
+            <div class="grid-3">
+                <div class="clickable-card" data-modal="modal-toplumsal"><i class="fas fa-people-group card-icon"></i><h4>Toplumsal</h4><p>Aşiret, Âlimler, Gençlik, Öğrenci</p><span class="card-badge">4 federasyon</span></div>
+                <div class="clickable-card" data-modal="modal-ekonomik"><i class="fas fa-industry card-icon"></i><h4>Ekonomik</h4><p>Sanayi, Tarım, Teknoloji</p><span class="card-badge">3 federasyon</span></div>
+                <div class="clickable-card" data-modal="modal-kulturel"><i class="fas fa-palette card-icon"></i><h4>Kültürel & Sivil</h4><p>Dil, Medya, Yardımlaşma</p><span class="card-badge">3 federasyon</span></div>
+                <div class="clickable-card" data-modal="modal-akademik"><i class="fas fa-flask card-icon"></i><h4>Akademik & Stratejik</h4><p>Akademi, Hukuk, Strateji</p><span class="card-badge">3 federasyon</span></div>
+            </div>
+        </section>
+
+        <!-- 3. KARAR ALMA -->
+        <section id="karar" class="section">
+            <h2>Karar Alma</h2>
+            <div class="grid-2">
+                <div class="clickable-card" data-modal="modal-ilke"><i class="fas fa-check-double card-icon"></i><h4>Temel İlkeler</h4><p>Yetki ayrımı, adalet, şeffaflık</p><span class="card-badge">tıkla</span></div>
+                <div class="clickable-card" data-modal="modal-mekanizma"><i class="fas fa-vote-yea card-icon"></i><h4>Mekanizma</h4><p>Oylama türleri, 2/3 çoğunluk</p><span class="card-badge">tıkla</span></div>
+            </div>
+        </section>
+
+        <!-- 4. MALİ SİSTEM -->
+        <section id="mali" class="section">
+            <h2>Mali Sistem</h2>
+            <div class="grid-2">
+                <div class="clickable-card" data-modal="modal-gelir"><i class="fas fa-hand-holding-usd card-icon"></i><h4>Gelir Kaynakları</h4><p>Katkı, bağış, proje</p><span class="card-badge">tıkla</span></div>
+                <div class="clickable-card" data-modal="modal-denetim-mali"><i class="fas fa-file-invoice card-icon"></i><h4>Denetim</h4><p>Kurul, raporlama, dış denetim</p><span class="card-badge">tıkla</span></div>
+                <div class="clickable-card" data-modal="modal-kriz-fon"><i class="fas fa-triangle-exclamation card-icon"></i><h4>Kriz Fonu</h4><p>Acil durum mekanizması</p><span class="card-badge">tıkla</span></div>
+            </div>
+        </section>
+
+        <!-- 5. ETİK VE ARABULUCULUK -->
+        <section id="etik" class="section">
+            <h2>Etik & Arabuluculuk</h2>
+            <div class="grid-2">
+                <div class="clickable-card" data-modal="modal-etik-yapi"><i class="fas fa-scale-balanced card-icon"></i><h4>Komisyon Yapısı</h4><p>Üyeler, rotasyon, uzmanlar</p><span class="card-badge">tıkla</span></div>
+                <div class="clickable-card" data-modal="modal-etik-surec"><i class="fas fa-handshake card-icon"></i><h4>Süreç</h4><p>Başvuru, oturum, raporlama</p><span class="card-badge">tıkla</span></div>
+            </div>
+        </section>
+
+        <!-- 6. 5 YILLIK PLAN - ÖZEL GRID 5'Lİ (tıklanabilir yıl kartları) -->
+        <section id="strateji" class="section">
+            <h2>5 Yıllık Stratejik Plan</h2>
+            <div class="grid-5">
+                <div class="clickable-card" data-modal="modal-yil1">
+                    <h4>Yıl 1</h4>
+                    <p>Kurumsal Temel</p>
+                    <span class="card-badge">2026</span>
+                </div>
+                <div class="clickable-card" data-modal="modal-yil2">
+                    <h4>Yıl 2</h4>
+                    <p>Operasyon & İletişim</p>
+                    <span class="card-badge">2027</span>
+                </div>
+                <div class="clickable-card" data-modal="modal-yil3">
+                    <h4>Yıl 3</h4>
+                    <p>Stratejik Projeler</p>
+                    <span class="card-badge">2028</span>
+                </div>
+                <div class="clickable-card" data-modal="modal-yil4">
+                    <h4>Yıl 4</h4>
+                    <p>Uluslararası Temsil</p>
+                    <span class="card-badge">2029</span>
+                </div>
+                <div class="clickable-card" data-modal="modal-yil5">
+                    <h4>Yıl 5</h4>
+                    <p>Sürdürülebilirlik</p>
+                    <span class="card-badge">2030</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- 7. HİYERARŞİ -->
+        <section id="hiyerarsi" class="section">
+            <h2>Hiyerarşi</h2>
+            <div class="clickable-card" data-modal="modal-hiyerarsi" style="max-width: 500px; margin: 0 auto;">
+                <i class="fas fa-diagram-project card-icon"></i>
+                <h4>Yapı Şeması</h4>
+                <p>Konfederal Meclis → Yürütme → Federasyonlar → Alt Birimler</p>
+                <span class="card-badge">şemayı görüntüle</span>
+            </div>
+        </section>
+
+        <!-- 8. KADRO -->
+        <section id="kadro" class="section">
+            <h2>Kadro Yapılanması</h2>
+            <div class="grid-2">
+                <div class="clickable-card" data-modal="modal-kadro-meclis"><i class="fas fa-user-tie card-icon"></i><h4>Meclis</h4><p>Başkan, temsilciler, sekretarya</p><span class="card-badge">tıkla</span></div>
+                <div class="clickable-card" data-modal="modal-kadro-yurutme"><i class="fas fa-user-gear card-icon"></i><h4>Yürütme</h4><p>1+6 üye, operasyon ekibi</p><span class="card-badge">tıkla</span></div>
+                <div class="clickable-card" data-modal="modal-kadro-denetim"><i class="fas fa-magnifying-glass card-icon"></i><h4>Denetim</h4><p>Başkan, üyeler, analistler</p><span class="card-badge">tıkla</span></div>
+                <div class="clickable-card" data-modal="modal-kadro-federasyon"><i class="fas fa-people-group card-icon"></i><h4>Federasyon İçi</h4><p>Başkan, yönetim kurulu, alt birimler</p><span class="card-badge">tıkla</span></div>
+            </div>
+        </section>
+    </div>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+        <p>Ulusal Kürdistan Birlik Platformu (Yekîtî) · یەکێتی</p>
+        <p style="opacity:0.6; margin-top:1rem;">Konfederal · Demokratik · Gelecek</p>
+    </footer>
+
+    <!-- MODAL / POPUP ALANI (tüm popuplar burada gizli) -->
+    <div class="modal-overlay" id="modal-overlay">
+        <div class="modal-content" id="modal-content">
+            <button class="modal-close" id="modal-close">&times;</button>
+            <div id="modal-dynamic-content">
+                <!-- içerik js ile doldurulacak -->
+            </div>
+        </div>
+    </div>
+
+    <script>
+        (function() {
+            // ---------- SPA BÖLÜM GEÇİŞLERİ ----------
+            const buttons = document.querySelectorAll('.nav-btn');
+            const sections = document.querySelectorAll('.section');
+
+            function activateSection(sectionId) {
+                sections.forEach(s => s.classList.remove('active-section'));
+                const activeSection = document.getElementById(sectionId);
+                if (activeSection) activeSection.classList.add('active-section');
+                
+                buttons.forEach(btn => {
+                    btn.classList.remove('active');
+                    if (btn.dataset.section === sectionId) {
+                        btn.classList.add('active');
+                    }
+                });
+            }
+
+            buttons.forEach(btn => {
+                btn.addEventListener('click', function() {
+                    activateSection(this.dataset.section);
+                    document.getElementById('content-area').scrollIntoView({ behavior: 'smooth' });
+                });
+            });
+
+            // Varsayılan açık bölüm
+            activateSection('yapi');
+
+            // ---------- MODAL/POPUP SİSTEMİ (tıklanabilir kartlar) ----------
+            const modalOverlay = document.getElementById('modal-overlay');
+            const modalContent = document.getElementById('modal-content');
+            const modalDynamic = document.getElementById('modal-dynamic-content');
+            const modalClose = document.getElementById('modal-close');
+
+            // Tüm .clickable-card öğelerine tıklanma olayı ekle
+            document.querySelectorAll('.clickable-card').forEach(card => {
+                card.addEventListener('click', function(e) {
+                    const modalId = this.dataset.modal; // data-modal değeri
+                    if (!modalId) return;
+                    
+                    // Popup içeriğini doldur
+                    let title = '';
+                    let bodyHtml = '';
+
+                    // Modal içeriklerini tanımla (tüm veriler burada)
+                    const modalData = {
+                        'modal-meclis': {
+                            title: 'Konfederal Meclis',
+                            items: ['Ana karar organı', 'Ortak politika ve deklarasyon', 'Kriz yönetimi', 'Mali standart onayı', 'Uluslararası diplomasi', 'Temsil: 1-3/federasyon', 'Kritik kararlar: 2/3 çoğunluk']
+                        },
+                        'modal-yurutme': {
+                            title: 'Yürütme Konseyi',
+                            items: ['7 üye (Meclis içinden)', 'Günlük koordinasyon', 'Acil durumlarda 7 günlük geçici yetki', 'Denetim Kurulu gözetiminde', 'Kararlar Meclis onayına sunulur']
+                        },
+                        'modal-denetim': {
+                            title: 'Denetim Kurulu',
+                            items: ['Bağımsız mali denetim', 'Etik ve prosedürel denetim', 'Düzenli raporlama', 'Şeffaflık ve hesap verebilirlik', 'Aylık/yıllık raporlar']
+                        },
+                        'modal-uzlasi': {
+                            title: 'Uzlaşı ve Arabuluculuk Komisyonu',
+                            items: ['Federeler arası anlaşmazlık çözümü', 'Tarafsız arabuluculuk', 'Kriz anında uzlaşı metni', 'Geleneksel-modern uyumu']
+                        },
+                        'modal-toplumsal': {
+                            title: 'Toplumsal Federeler',
+                            items: ['Kürdistan Aşiretler Konfederasyonu', 'Kürdistan Âlimler Birliği', 'Kürdistan Gençlik Federasyonu', 'Kürdistan Öğrenciler Birliği']
+                        },
+                        'modal-ekonomik': {
+                            title: 'Ekonomik Federeler',
+                            items: ['Sanayi ve İş Adamları Birliği', 'Tarım ve Kooperatif Federasyonu', 'Yazılımcılar ve Teknoloji Federasyonu']
+                        },
+                        'modal-kulturel': {
+                            title: 'Kültürel & Sivil Federeler',
+                            items: ['Kültür ve Dil Kurumu', 'Medya ve İletişim Ağı', 'Yardımlaşma ve Sosyal Destek Federasyonu']
+                        },
+                        'modal-akademik': {
+                            title: 'Akademik & Stratejik Federeler',
+                            items: ['Akademisyenler Konseyi', 'Hukuk ve Meşruiyet Kurulu', 'Strateji ve Araştırma Enstitüsü']
+                        },
+                        'modal-yil1': {
+                            title: 'Yıl 1 - Kurumsal Temel',
+                            items: ['Konfederal Meclis ve kurullar kurulur', 'Sekretarya aktif', 'Temsilci sayıları kesinleşir', 'Katkı payı sistemi aktif', 'Etik ve kriz eğitimleri başlar']
+                        },
+                        'modal-yil2': {
+                            title: 'Yıl 2 - Operasyon & İletişim',
+                            items: ['Düzenli Meclis toplantıları', 'İlk ortak politika ve deklarasyonlar', 'Kriz fonu oluşturulur', 'Medya koordinasyonu başlar', 'Federeler arası iş birliği anlaşmaları']
+                        },
+                        'modal-yil3': {
+                            title: 'Yıl 3 - Stratejik Projeler',
+                            items: ['Sanayi yatırım projeleri', 'Kırsal kalkınma projeleri', 'Dil, kültür, sanat projeleri', 'İlk dış denetim', 'Uzlaşı prosedürleri standartlaşır']
+                        },
+                        'modal-yil4': {
+                            title: 'Yıl 4 - Uluslararası Temsil',
+                            items: ['Diplomatik temaslar', 'Diaspora bağış sistemleri', 'Kriz fonu test edilir', 'Liderlik programları yaygınlaşır']
+                        },
+                        'modal-yil5': {
+                            title: 'Yıl 5 - Sürdürülebilirlik',
+                            items: ['5 yıllık plan değerlendirmesi', 'Mali sistem revizyonu', 'Yeni federasyon planlaması', 'Önleyici eğitimler yaygınlaştırılır']
+                        },
+                        'modal-hiyerarsi': {
+                            title: 'Hiyerarşi Şeması',
+                            items: ['1. Konfederal Meclis (tepe)', '2. Yürütme Konseyi, Denetim, Uzlaşı', '3. Federasyonlar (özerk)', '4. Alt Birimler', 'Sekretarya tüm belgeleri yönetir']
+                        },
+                        'modal-kadro-meclis': {
+                            title: 'Meclis Kadrosu',
+                            items: ['Başkan/Eşbaşkan (1-2 kişi)', 'Temsilciler (1-3/federasyon)', 'Sekretarya (5-10 kişi)', 'Tutanak, belge, dijital arşiv yönetimi']
+                        },
+                        'modal-kadro-yurutme': {
+                            title: 'Yürütme Konseyi Kadrosu',
+                            items: ['Başkan (1 kişi)', 'Üyeler (6 kişi)', 'Sekretarya/Operasyon (2-3 kişi)']
+                        },
+                        'modal-kadro-denetim': {
+                            title: 'Denetim Kurulu Kadrosu',
+                            items: ['Başkan (1 kişi)', 'Üyeler (2-4 kişi)', 'Analist/Raporlama Birimi (2 kişi)']
+                        },
+                        'modal-kadro-federasyon': {
+                            title: 'Federasyon İç Yapısı',
+                            items: ['Başkan/Genel Sekreter', 'Yönetim Kurulu (3-5 kişi)', 'Alt Birim Sorumluları', 'Meclis Temsilcileri (1-3)']
+                        },
+                        'modal-ilke': {
+                            title: 'Temel İlkeler',
+                            items: ['Yetki ayrımı', 'Temsil adaleti', 'Bağlayıcılık', 'Şeffaflık', 'Kriz esnekliği']
+                        },
+                        'modal-mekanizma': {
+                            title: 'Karar Alma Mekanizması',
+                            items: ['Genel kararlar: oy çokluğu', 'Kritik kararlar: 2/3 çoğunluk', 'Yürütme Konseyi: 7 günlük acil yetki', 'Denetim Kurulu onay süreçleri']
+                        },
+                        'modal-gelir': {
+                            title: 'Gelir Kaynakları',
+                            items: ['Federasyon katkıları (büyüklüğe göre)', 'Bağış ve sponsorluk', 'Projelerden elde edilen gelirler', 'Yatırım fonları']
+                        },
+                        'modal-denetim-mali': {
+                            title: 'Mali Denetim',
+                            items: ['Denetim Kurulu bağımsız raporlar', 'Dış denetim çağrılabilir', 'Şeffaf dijital raporlama']
+                        },
+                        'modal-kriz-fon': {
+                            title: 'Kriz ve Acil Durum Fonu',
+                            items: ['Doğal afet, savaş, ekonomik kriz', 'Yürütme Konseyi geçici yetkili', '7 gün içinde Meclis onayı', 'Merkezi bütçeden ayrılmış fon']
+                        },
+                        'modal-etik-yapi': {
+                            title: 'Komisyon Yapısı',
+                            items: ['Her federasyondan 1 temsilci', 'Bağımsız uzmanlar (hukuk, psikoloji, sosyoloji)', 'Rotasyonlu başkan (6 ayda bir)', 'Sekretarya desteği']
+                        },
+                        'modal-etik-surec': {
+                            title: 'Arabuluculuk Süreci',
+                            items: ['Başvuru', 'Araştırma', 'Uzlaşı oturumu', 'Raporlama ve öneri', 'Uygulama takibi']
+                        }
+                    };
+
+                    const data = modalData[modalId];
+                    if (data) {
+                        title = data.title;
+                        const listItems = data.items.map(item => `<li><i class="fas fa-chevron-right"></i> ${item}</li>`).join('');
+                        bodyHtml = `<h3 class="modal-title">${title}</h3><ul>${listItems}</ul>`;
+                    } else {
+                        bodyHtml = '<p>İçerik bulunamadı.</p>';
+                    }
+
+                    modalDynamic.innerHTML = bodyHtml;
+                    modalOverlay.classList.add('active');
+                });
+            });
+
+            // Modal kapatma
+            modalClose.addEventListener('click', function() {
+                modalOverlay.classList.remove('active');
+            });
+
+            modalOverlay.addEventListener('click', function(e) {
+                if (e.target === modalOverlay) {
+                    modalOverlay.classList.remove('active');
+                }
+            });
+
+            // ESC tuşu ile kapatma
+            document.addEventListener('keydown', function(e) {
+                if (e.key === 'Escape' && modalOverlay.classList.contains('active')) {
+                    modalOverlay.classList.remove('active');
+                }
+            });
+        })();
+    </script>
+</body>
+</html>
