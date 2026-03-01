@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>📜 Tarih Boyunca Kürt Devletleri & Hanedanlıkları | Şematik Kronoloji</title>
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+            background: #f8f4e9;  /* parşömen tonu */
+            color: #2d2a24;
+            line-height: 1.5;
+            padding: 2rem 1rem;
+        }
+
+        .container {
+            max-width: 1500px;
+            margin: 0 auto;
+            background: rgba(255, 254, 245, 0.7);
+            backdrop-filter: blur(2px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15), 0 4px 12px rgba(0, 0, 0, 0.1);
+            border-radius: 32px;
+            padding: 2rem 1.5rem;
+            border: 1px solid #d9c8a9;
+        }
+
+        h1 {
+            font-size: 2.4rem;
+            font-weight: 600;
+            letter-spacing: 1px;
+            color: #3a2c1b;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            flex-wrap: wrap;
+            border-bottom: 3px solid #b4946a;
+            padding-bottom: 0.8rem;
+            margin-bottom: 1.2rem;
+        }
+
+        h1 i {
+            color: #8b5a2b;
+            font-size: 2.2rem;
+        }
+
+        .era-badge {
+            background: #5e3e1e;
+            color: #f0e1cf;
+            padding: 0.4rem 1.2rem;
+            border-radius: 40px;
+            font-size: 1.1rem;
+            font-weight: 500;
+            display: inline-block;
+            margin: 1.2rem 0 0.6rem 0;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+            letter-spacing: 1px;
+            border-left: 6px solid #c9a77d;
+        }
+
+        .era-badge i {
+            margin-right: 8px;
+            color: #ffd78c;
+        }
+
+        .grid-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.2rem;
+            margin: 1.5rem 0 2rem 0;
+        }
+
+        .card {
+            background: #fffcf3;
+            border-radius: 24px;
+            padding: 1.2rem 1.2rem 1rem 1.2rem;
+            box-shadow: 0 6px 14px rgba(80, 50, 20, 0.12);
+            border: 1px solid #ebdccb;
+            transition: 0.2s;
+            display: flex;
+            flex-direction: column;
+            border-left: 6px solid #b48b5a;
+        }
+
+        .card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 18px 28px -8px #7a5e3f80;
+            border-color: #ac8b62;
+        }
+
+        .card-header {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            border-bottom: 1px dashed #cbb291;
+            padding-bottom: 8px;
+            margin-bottom: 8px;
+        }
+
+        .card-header i {
+            font-size: 1.8rem;
+            color: #8f673b;
+            width: 32px;
+            text-align: center;
+        }
+
+        .card-header h3 {
+            font-size: 1.35rem;
+            font-weight: 600;
+            color: #2d2a24;
+        }
+
+        .card-header .years {
+            margin-left: auto;
+            font-weight: 600;
+            background: #efe2d1;
+            padding: 4px 10px;
+            border-radius: 40px;
+            font-size: 0.8rem;
+            color: #4f3e2b;
+            white-space: nowrap;
+        }
+
+        .detail-line {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 5px 12px;
+            font-size: 0.9rem;
+            color: #4f4437;
+            margin: 8px 0 4px;
+            background: #faf2e7;
+            padding: 6px 10px;
+            border-radius: 18px;
+        }
+
+        .detail-line i {
+            width: 18px;
+            color: #b78b53;
+            font-size: 0.9rem;
+        }
+
+        .desc {
+            font-size: 0.93rem;
+            color: #3e362b;
+            margin: 6px 0 4px;
+            line-height: 1.4;
+        }
+
+        .tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 6px;
+            margin-top: 8px;
+            margin-bottom: 4px;
+        }
+
+        .tag {
+            background: #e6d8c4;
+            color: #3e2e1b;
+            padding: 4px 12px;
+            border-radius: 26px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            letter-spacing: 0.3px;
+            border: 1px solid #cdb69b;
+        }
+
+        .tag i {
+            margin-right: 5px;
+            font-size: 0.7rem;
+        }
+
+        hr {
+            border: none;
+            height: 2px;
+            background: linear-gradient(to right, #dac29c, transparent);
+            margin: 1.8rem 0 0.5rem 0;
+        }
+
+        .emirlik-grp {
+            background: #eee5d8;
+            border-radius: 28px;
+            padding: 1.2rem 1.2rem 0.8rem 1.2rem;
+            margin: 2rem 0 1.2rem;
+            border: 1px solid #c7b5a0;
+        }
+
+        .emirlik-title {
+            font-size: 1.7rem;
+            font-weight: 600;
+            color: #3b2e1d;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 1rem;
+            background: #dacbb8;
+            padding: 8px 24px;
+            border-radius: 48px;
+            width: fit-content;
+        }
+
+        .mini-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
+            gap: 0.8rem;
+        }
+
+        .mini-card {
+            background: #fffbf5;
+            border-radius: 20px;
+            padding: 0.7rem 1rem;
+            border-left: 4px solid #a77b4f;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.04);
+            font-size: 0.95rem;
+            font-weight: 500;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .mini-card i {
+            color: #b17d49;
+            width: 24px;
+            font-size: 1.2rem;
+        }
+
+        .small-note {
+            font-size: 0.85rem;
+            color: #6f5e48;
+            margin-top: 10px;
+            font-style: italic;
+        }
+
+        footer {
+            margin-top: 3rem;
+            text-align: center;
+            color: #62543d;
+            font-size: 0.9rem;
+            border-top: 1px solid #cfb89c;
+            padding-top: 1.5rem;
+        }
+
+        .legend {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 2rem;
+            margin: 1rem 0;
+            font-size: 0.9rem;
+            background: #eadbc8;
+            padding: 8px 20px;
+            border-radius: 50px;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <h1>
+        <i class="fas fa-timeline"></i> 
+        Kürt Devletleri & Hanedanlıkları Kronolojisi
+        <span style="font-size: 1rem; background: #b4946a; color: #fcf3e7; padding: 5px 15px; border-radius: 40px; margin-left: auto;">
+            <i class="fas fa-mountain"></i> Zagros’tan Mezopotamya’ya
+        </span>
+    </h1>
+    <div class="legend">
+        <span><i class="fas fa-crown" style="color:#8B4513;"></i> İmparatorluk/Krallık</span>
+        <span><i class="fas fa-chess-rook" style="color:#7a5b3b;"></i> Beylik/Emirlik</span>
+        <span><i class="fas fa-people-group"></i> Konfederasyon/Kabile</span>
+    </div>
+
+    <!-- Proto-Kürt / M.Ö. Dönemi -->
+    <div class="era-badge"><i class="fas fa-axe"></i> MİLATTAN ÖNCE · PROTO-KÜRT HALK & İMPARATORLUKLAR</div>
+    <div class="grid-container">
+        <!-- Hurriler -->
+        <div class="card"><div class="card-header"><i class="fas fa-arrow-up-wide-short"></i><h3>Hurriler</h3><span class="years">M.Ö. 2500-1200</span></div><div class="detail-line"><i class="fas fa-location-dot"></i> Kuzey Mezopotamya, Anadolu</div><div class="desc">Mitanni Krallığı'nı kurdular. Hurri-Urartu dil ailesi, Kürtçe ile bağlantılı. </div><div class="tags"><span class="tag"><i class="fas fa-horse"></i> At kültürü</span><span class="tag">Mitanni</span></div></div>
+        <!-- Gutiler -->
+        <div class="card"><div class="card-header"><i class="fas fa-dragon"></i><h3>Guti İmparatorluğu</h3><span class="years">M.Ö. 2200-2100</span></div><div class="detail-line"><i class="fas fa-location-dot"></i> Zagros, Mezopotamya</div><div class="desc">Sümer kaynaklarında "yılan dağlarından gelen ejderha halkı". Akad İmparatorluğu'nu yıktı. 21 klan lideri (aşiret konfederasyonu).</div><div class="tags"><span class="tag">Sümer Kral Listesi</span><span class="tag">Erridupizir</span></div></div>
+        <!-- Lullubiler -->
+        <div class="card"><div class="card-header"><i class="fas fa-bow-arrow"></i><h3>Lullubiler</h3><span class="years">M.Ö. 2400-650</span></div><div class="detail-line"><i class="fas fa-location-dot"></i> Kerkük-Süleymaniye</div><div class="desc">Savaşçı dağ halkı. Kral Anubanini, Sarpol-e Zahab kaya kabartması. </div><div class="tags"><span class="tag">Lulubuna</span><span class="tag">Anubanini</span></div></div>
+        <!-- Kassitler -->
+        <div class="card"><div class="card-header"><i class="fas fa-landmark"></i><h3>Kassit İmparatorluğu</h3><span class="years">M.Ö. 1600-1150</span></div><div class="detail-line"><i class="fas fa-location-dot"></i> Babil, Zagros</div><div class="desc">Babil'de 400 yıl egemenlik (en uzun hanedan). At yetiştiriciliği, Zagros tanrıları.</div><div class="tags"><span class="tag">Kaššu</span><span class="tag">Kurigalzu</span></div></div>
+        <!-- Mannalar -->
+        <div class="card"><div class="card-header"><i class="fas fa-water"></i><h3>Mannalar</h3><span class="years">M.Ö. 900-600</span></div><div class="detail-line"><i class="fas fa-location-dot"></i> Urmiye Gölü çev.</div><div class="desc">Manna Krallığı, Urartu ve Asur arasında.</div><div class="tags"><span class="tag">İran Kürdistanı</span></div></div>
+        <!-- Urartu -->
+        <div class="card"><div class="card-header"><i class="fas fa-mountain-city"></i><h3>Urartu Krallığı</h3><span class="years">M.Ö. 860-590</span></div><div class="detail-line"><i class="fas fa-location-dot"></i> Tuşpa (Van)</div><div class="desc">Hurri-Urartu dili, Menua Kanalı, kaleler. Medler tarafından yıkıldı.</div><div class="tags"><span class="tag">Sarduri</span><span class="tag">Semiramis Kanalı</span></div></div>
+        <!-- Med İmparatorluğu -->
+        <div class="card"><div class="card-header"><i class="fas fa-crown"></i><h3>Med İmparatorluğu</h3><span class="years">M.Ö. 678-549</span></div><div class="detail-line"><i class="fas fa-location-dot"></i> Ekbatana (Hemedan)</div><div class="desc">Zagros kabilelerini birleştirdi. Asur’u yıktı (M.Ö. 612). 6 Med kabilesi (Herodot). Deioces, Kyaxares.</div><div class="tags"><span class="tag">İlk Kürt imparatorluğu</span><span class="tag">Med-Pers</span></div></div>
+        <!-- Karduklar (Gordiene) -->
+        <div class="card"><div class="card-header"><i class="fas fa-people-arrows"></i><h3>Karduklar (Gordiene)</h3><span class="years">M.Ö. 400</span></div><div class="detail-line"><i class="fas fa-location-dot"></i> Botan Çayı, Cizre</div><div class="desc">Ksenophon Anabasis: “Pers kralına boyun eğmeyen savaşçılar”. "Kürt" adının kökeni.</div><div class="tags"><span class="tag">Kardox</span><span class="tag">Kordukhlar</span></div></div>
+        <!-- Nairiler, Zamua, Ellipi... hızlıca -->
+        <div class="card"><div class="card-header"><i class="fas fa-flag"></i><h3>Nairi Konfederasyonu</h3><span class="years">M.Ö. 1300-900</span></div><div class="detail-line"><i class="fas fa-location-dot"></i> Van, Bitlis, Diyarbakır</div><div class="desc">23-60 kabile, Asur kayıtları. Urartu'nun öncüsü.</div></div>
+        <div class="card"><div class="card-header"><i class="fas fa-scroll"></i><h3>Zamua (Lullubi)</h3><span class="years">M.Ö. 1000-800</span></div><div class="detail-line"><i class="fas fa-location-dot"></i> Süleymaniye, Halepçe</div><div class="desc">Kayusiler, Lulubuna başkent. Asur'a direniş.</div></div>
+        <div class="card"><div class="card-header"><i class="fas fa-chess-board"></i><h3>Turukkuler</h3><span class="years">M.Ö. 2000-1500</span></div><div class="desc">Musul-Erbil arası savaşçı halk.</div></div>
+        <div class="card"><div class="card-header"><i class="fas fa-university"></i><h3>Simurrum</h3><span class="years">M.Ö. 2200-1500</span></div><div class="desc">Süleymaniye çevresinde krallık.</div></div>
+        <div class="card"><div class="card-header"><i class="fas fa-tree"></i><h3>Ellipi</h3><span class="years">M.Ö. 900-600</span></div><div class="desc">Kirmanşah - Luristan arası.</div></div>
+        <div class="card"><div class="card-header"><i class="fas fa-draw-polygon"></i><h3>Subartu</h3><span class="years">M.Ö. 2500-1000</span></div><div class="desc">Kuzey Mezopotamya antik adı.</div></div>
+        <div class="card"><div class="card-header"><i class="fas fa-helmet-safety"></i><h3>Kyrtiler / Mardiler</h3><span class="years">M.Ö. 500-?</span></div><div class="desc">Pers kayıtlarında, Güneybatı İran.</div></div>
+        <div class="card"><div class="card-header"><i class="fas fa-church"></i><h3>Adiabene (Hedyab)</h3><span class="years">M.Ö. 100 - M.S. 300</span></div><div class="desc">Erbil merkezli krallık.</div></div>
+    </div>
+
+    <!-- İSLAM'DAN ÖNCE (devamı: Part, Sasanî vs) -->
+    <div class="era-badge"><i class="fas fa-arrow-right"></i> MİLAT SONRASI · İSLAM ÖNCESİ İMPARATORLUKLAR</div>
+    <div class="grid-container">
+        <div class="card"><div class="card-header"><i class="fas fa-chess-knight"></i><h3>Part İmparatorluğu</h3><span class="years">M.Ö. 247 - M.S. 224</span></div><div class="desc">Kürt atalarıyla bağlantılı Arsaklılar, feodal yapı.</div></div>
+        <div class="card"><div class="card-header"><i class="fas fa-fire"></i><h3>Sasanî İmparatorluğu</h3><span class="years">224-651</span></div><div class="desc">Zagros'tan güç alan; Kürt beylikleriyle iç içe.</div></div>
+        <div class="card"><div class="card-header"><i class="fas fa-helmet-battle"></i><h3>Zelani (Pontus)</h3><span class="years">M.Ö.  - </span></div><div class="desc">Anadolu - Pontus / Zelani bağlantısı (Kürd-Zenoi).</div></div>
+        <div class="card"><div class="card-header"><i class="fas fa-mosque"></i><h3>Samaniler</h3><span class="years">819-999</span></div><div class="desc">Fars-Kürt karışımı hanedan (iddia). Horasan.</div></div>
+        <div class="card"><div class="card-header"><i class="fas fa-moon"></i><h3>Xaldiler / Urartu</h3><span class="years">M.Ö. 860-590</span></div><div class="desc">(Yukarıda var) Khaldi tanrısı.</div></div>
+    </div>
+
+    <!-- İSLAM'DAN SONRA KÜRTLER ana hanedanlıklar -->
+    <div class="era-badge"><i class="fas fa-star-and-crescent"></i> İSLAMİ DÖNEM BÜYÜK HANEDANLIKLAR & DEVLETLER</div>
+    <div class="grid-container">
+        <div class="card"><div class="card-header"><i class="fas fa-chess-queen"></i><h3>Şeddadiler</h3><span class="years">951-1199</span></div><div class="desc">Dvin (Ermenistan) merkezli.</div></div>
+        <div class="card"><div class="card-header"><i class="fas fa-chess-board"></i><h3>Mervaniler</h3><span class="years">983-1096</span></div><div class="desc">Diyarbakır merkezli.</div></div>
+        <div class="card"><div class="card-header"><i class="fas fa-landmark-dome"></i><h3>Revvadiler</h3><span class="years">955-1071</span></div><div class="desc">Tebriz merkezli.</div></div>
+        <div class="card"><div class="card-header"><i class="fas fa-helmet-safety"></i><h3>Hasanveyhiler</h3><span class="years">959-1015</span></div><div class="desc">Zagros, Kermanşah.</div></div>
+        <div class="card"><div class="card-header"><i class="fas fa-crown"></i><h3>Annaziler</h3><span class="years">990-1117</span></div><div class="desc">Hulvan, Kermanşah.</div></div>
+        <div class="card"><div class="card-header"><i class="fas fa-arrow-up-from-bracket"></i><h3>Eyyubiler</h3><span class="years">1171-1250</span></div><div class="desc">Selahaddin Eyyubi, Kürt hanedanı. Mısır, Suriye.</div></div>
+        <div class="card"><div class="card-header"><i class="fas fa-city"></i><h3>Hezaresbîler</h3><span class="years">1115-1225</span></div><div class="desc">Luristan (Hazaraspi).</div></div>
+        <div class="card"><div class="card-header"><i class="fas fa-umbrella-beach"></i><h3>Hazaraspiler</h3><span class="years">1115-1225</span></div><div class="desc">Luristan Atabeyliği.</div></div>
+        <div class="card"><div class="card-header"><i class="fas fa-monument"></i><h3>Büveyhiler</h3><span class="years">934-1062</span></div><div class="desc">Deylem kökenli, Kürt bağlantısı tartışmalı.</div></div>
+        <div class="card"><div class="card-header"><i class="fas fa-shield-halved"></i><h3>Şabankara</h3><span class="years">11. yüzyıl</span></div><div class="desc">Fars bölgesi Kürt emirliği.</div></div>
+        <div class="card"><div class="card-header"><i class="fas fa-scroll"></i><h3>Zend Devleti</h3><span class="years">1751-1794</span></div><div class="desc">Kerim Han Zend, Lur-Kürt hanedanı.</div></div>
+        <div class="card"><div class="card-header"><i class="fas fa-flag"></i><h3>Erdelan Prensliği</h3><span class="years">1169-1867</span></div><div class="desc">Sine (Senendec) merkezli.</div></div>
+        <div class="card"><div class="card-header"><i class="fas fa-horse"></i><h3>Baban</h3><span class="years">16. yy - 1851</span></div><div class="desc">Süleymaniye merkezli beylik.</div></div>
+        <div class="card"><div class="card-header"><i class="fas fa-mountain"></i><h3>Soran Emirliği</h3><span class="years">1816-1836</span></div><div class="desc">Revanduz, Mir Muhammed Kör.</div></div>
+        <div class="card"><div class="card-header"><i class="fas fa-water"></i><h3>Behdinan Emirliği</h3><span class="years">14. yy - 1842</span></div><div class="desc">Amadiye, Badinan.</div></div>
+    </div>
+
+    <!-- İSLAM DÖNEMİ KÜRT EMİRLİKLERİ - ayrıntılı gruplar -->
+    <div class="emirlik-grp">
+        <div class="emirlik-title"><i class="fas fa-layer-group"></i> İSLAM DÖNEMİ KÜRT EMİRLİKLERİ (BÖLGESEL)</div>
+        <div class="mini-grid">
+            <!-- A - Dersim ve Cezire arası -->
+            <div class="mini-card"><i class="fas fa-flag"></i> Cezire (Botan) Emirliği</div>
+            <div class="mini-card"><i class="fas fa-flag"></i> Hizan Emirliği</div>
+            <div class="mini-card"><i class="fas fa-flag"></i> Şirvan Emirliği</div>
+            <div class="mini-card"><i class="fas fa-flag"></i> Bitlis Emirliği</div>
+            <div class="mini-card"><i class="fas fa-flag"></i> Sason Emirliği</div>
+            <div class="mini-card"><i class="fas fa-flag"></i> Süveydiye Emirliği</div>
+            <div class="mini-card"><i class="fas fa-flag"></i> Pazokiler</div>
+            <div class="mini-card"><i class="fas fa-flag"></i> Mirdasi Emirliği</div>
+            <div class="mini-card"><i class="fas fa-flag"></i> Çemişgezek Emirliği</div>
+            <!-- B -->
+            <div class="mini-card"><i class="fas fa-flag"></i> Hasankeyf Emirliği</div>
+            <div class="mini-card"><i class="fas fa-flag"></i> Suveydi Emirliği</div>
+            <div class="mini-card"><i class="fas fa-flag"></i> Zeriki Emirliği</div>
+            <div class="mini-card"><i class="fas fa-flag"></i> Kilis & Azez Emirliği</div>
+            <!-- C -->
+            <div class="mini-card"><i class="fas fa-flag"></i> Hakkari Emirliği</div>
+            <div class="mini-card"><i class="fas fa-flag"></i> Mahmudi Emirliği</div>
+            <div class="mini-card"><i class="fas fa-flag"></i> Binbanbeş</div>
+            <div class="mini-card"><i class="fas fa-flag"></i> Dinbili Emirliği</div>
+            <div class="mini-card"><i class="fas fa-flag"></i> Bradost Emirliği</div>
+            <div class="mini-card"><i class="fas fa-flag"></i> Mukri Emirliği (Mahabad)</div>
+            <div class="mini-card"><i class="fas fa-flag"></i> Estoni Emirliği</div>
+            <!-- D - Güney Hakkari -->
+            <div class="mini-card"><i class="fas fa-flag"></i> Behdinan Emirliği</div>
+            <div class="mini-card"><i class="fas fa-flag"></i> Dasni Emirliği</div>
+            <div class="mini-card"><i class="fas fa-flag"></i> Soran Emirliği</div>
+            <div class="mini-card"><i class="fas fa-flag"></i> Baban Emirliği</div>
+            <div class="mini-card"><i class="fas fa-flag"></i> Bane Emirliği</div>
+            <div class="mini-card"><i class="fas fa-flag"></i> Gelbaği Emirliği</div>
+            <div class="mini-card"><i class="fas fa-flag"></i> Kelhor Emirliği</div>
+            <!-- E - Doğu İran -->
+            <div class="mini-card"><i class="fas fa-flag"></i> Siyah Mansur Emirliği</div>
+            <div class="mini-card"><i class="fas fa-flag"></i> Çekeni Emirliği</div>
+            <div class="mini-card"><i class="fas fa-flag"></i> Zengene Emirliği</div>
+            <!-- F - Horasan -->
+            <div class="mini-card"><i class="fas fa-flag"></i> Koçan Emirliği</div>
+            <div class="mini-card"><i class="fas fa-flag"></i> Becnord Emirliği</div>
+            <!-- G - Lübnan Dağı -->
+            <div class="mini-card"><i class="fas fa-flag"></i> Dürzi İmadlılar Meşayihleri</div>
+            <div class="mini-card"><i class="fas fa-flag"></i> Seyfaoğulları Kürdleri</div>
+            <div class="mini-card"><i class="fas fa-flag"></i> Res Nahhas Kürdleri</div>
+        </div>
+        <div class="small-note">
+            <i class="fas fa-list"></i> Ayrıca: Sadakiler, Hezbaniler, Fadleviler, Şivankarlar, Ananoğulları, Azerbaycan Salar Hükümeti, Zirkan Prensliği, Suveydi Emirliği, Avfsharlar, Hoy Hanlığı, Küçük Lor Hükümeti (Küçük Luristan Atabeyliği), Zekeri Hanedanlığı, Brahoyiler, Safeviler (Kürt köken iddiaları), Hezo Emirliği, Zend Devleti (tekrar), Goran Devleti...
+        </div>
+    </div>
+
+    <!-- YAKIN DÖNEM KÜRT YÖNETİMLERİ -->
+    <div class="era-badge"><i class="fas fa-flag"></i> MODERN DÖNEM KÜRT DEVLETÇİKLERİ & ÖZERK YÖNETİMLER</div>
+    <div class="grid-container">
+        <div class="card"><div class="card-header"><i class="fas fa-flag"></i><h3>Ağrı Kürdistan Cumhuriyeti</h3><span class="years">1927-1930</span></div><div class="desc">Ararat (Kürt) ayaklanması, İhsan Nuri Paşa.</div></div>
+        <div class="card"><div class="card-header"><i class="fas fa-flag"></i><h3>Mahabad Kürdistan Cumhuriyeti</h3><span class="years">1946</span></div><div class="desc">İran, Mahabad. Qazi Muhammed, Mehabad.</div></div>
+        <div class="card"><div class="card-header"><i class="fas fa-flag"></i><h3>Irak Kürdistan Bölgesel Yönetimi</h3><span class="years">1992-günümüz</span></div><div class="desc">Federal Kürdistan Bölgesi, Erbil.</div></div>
+        <div class="card"><div class="card-header"><i class="fas fa-flag"></i><h3>Rojava Demokratik Özerk Yönetimi</h3><span class="years">2013-...</span></div><div class="desc">Suriye'nin kuzeyi, Demokratik Konfederalizm.</div></div>
+    </div>
+
+    <hr>
+    <div style="display:flex; flex-wrap:wrap; gap:1.2rem; justify-content: center;">
+        <div style="background: #f5ebdb; border-radius: 40px; padding: 0.8rem 1.8rem;"><i class="fas fa-hourglass-half"></i> Antik Zagros halkları: Hurri-Urartu, Guti, Lullubi, Kassit, Mannai, Med, Kardox...</div>
+        <div style="background: #f5ebdb; border-radius: 40px; padding: 0.8rem 1.8rem;"><i class="fas fa-scroll"></i> 30+ İslami dönem emirliği + hanedanlar (Şeddadi, Mervani, Eyyubi, Erdelan)</div>
+    </div>
+    <footer>
+        <i class="fas fa-copyright"></i> Tarihi şema - Proto-Kürt etnogenezinden günümüze • Kaynaklar: Anabasis, Sümer Kral Listesi, Asur kayıtları, İslam kaynakları, modern araştırmalar. 
+    </footer>
+</div>
+<!-- Not: Görsel bir şemaya dönüştürülmüş, tüm devletler tek bakışta -->
+</body>
+</html>
