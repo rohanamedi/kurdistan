@@ -1,0 +1,499 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>Kürt Ulusal Talepler Bildirgesi | Declaration of Kurdish National Demands</title>
+    <!-- Google Fonts: Modern ve okunaklı bir serif & sans-serif kombinasyonu -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700&family=Playfair+Display:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: #0c0c0c;
+            color: #e0e0e0;
+            font-family: 'Inter', sans-serif;
+            line-height: 1.5;
+            scroll-behavior: smooth;
+        }
+
+        /* === SABIT ÜÇ RENKLİ ŞERİT === */
+        .tricolor-bar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 6px;
+            display: flex;
+            z-index: 1000;
+        }
+        .tricolor-bar .red {
+            background-color: #e30a17; /* Kırmızı */
+            flex: 1;
+        }
+        .tricolor-bar .white {
+            background-color: #ffffff; /* Beyaz */
+            flex: 1;
+        }
+        .tricolor-bar .green {
+            background-color: #009e49; /* Yeşil */
+            flex: 1;
+        }
+
+        /* === ANA KONTEYNER === */
+        .container {
+            max-width: 1300px;
+            margin: 0 auto;
+            padding: 2rem 2rem 4rem 2rem;
+            position: relative;
+        }
+
+        /* === HERO BÖLÜMÜ === */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 2rem 1rem;
+            margin-bottom: 2rem;
+            position: relative;
+        }
+        .hero h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(2.5rem, 8vw, 4.8rem);
+            font-weight: 700;
+            background: linear-gradient(135deg, #FFB300 0%, #FFD54F 100%);
+            background-clip: text;
+            -webkit-background-clip: text;
+            color: transparent;
+            margin-bottom: 1rem;
+            letter-spacing: -0.02em;
+        }
+        .hero .subhead {
+            font-size: clamp(1rem, 4vw, 1.3rem);
+            color: #c0c0c0;
+            font-weight: 400;
+            letter-spacing: 2px;
+            margin-bottom: 2rem;
+            text-transform: uppercase;
+            border-bottom: 1px solid rgba(255, 179, 0, 0.3);
+            display: inline-block;
+            padding-bottom: 0.5rem;
+        }
+        .hero .intro-text {
+            max-width: 800px;
+            font-size: clamp(1rem, 4vw, 1.2rem);
+            line-height: 1.6;
+            color: #d0d0d0;
+            margin: 1.5rem 0;
+            font-weight: 400;
+        }
+        .scroll-indicator {
+            position: absolute;
+            bottom: 2rem;
+            left: 50%;
+            transform: translateX(-50%);
+            cursor: pointer;
+            animation: bounce 2s infinite;
+            transition: opacity 0.3s;
+        }
+        .scroll-indicator span {
+            font-size: 2.5rem;
+            color: #FFB300;
+            display: block;
+        }
+        @keyframes bounce {
+            0%, 100% { transform: translateX(-50%) translateY(0); opacity: 0.7; }
+            50% { transform: translateX(-50%) translateY(12px); opacity: 1; }
+        }
+
+        /* === TALEP BÖLÜMLERİ (CARDS) === */
+        .demand-section {
+            background: #141414;
+            border-radius: 24px;
+            padding: 2rem 2rem;
+            margin-bottom: 3rem;
+            border-left: 6px solid #FFB300;
+            transition: transform 0.25s ease, box-shadow 0.3s ease;
+            box-shadow: 0 12px 28px rgba(0,0,0,0.4);
+        }
+        .demand-section:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 20px 32px rgba(0,0,0,0.5);
+            background: #181818;
+        }
+        .section-title {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(1.6rem, 5vw, 2.2rem);
+            font-weight: 700;
+            color: #FFB300;
+            margin-bottom: 1.5rem;
+            letter-spacing: -0.3px;
+            border-bottom: 1px dashed rgba(255, 179, 0, 0.3);
+            display: inline-block;
+            padding-bottom: 0.4rem;
+        }
+        .article-list {
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+        }
+        .article-item h3 {
+            font-size: clamp(1.2rem, 4vw, 1.5rem);
+            font-weight: 600;
+            color: #FFB300;
+            margin-bottom: 0.75rem;
+        }
+        .article-item p {
+            font-size: clamp(0.95rem, 3vw, 1.05rem);
+            color: #e0e0e0;
+            line-height: 1.6;
+            margin-bottom: 0.5rem;
+        }
+        .article-item .sub-list {
+            margin-top: 0.75rem;
+            padding-left: 1.5rem;
+            list-style: none;
+        }
+        .article-item .sub-list li {
+            margin-bottom: 0.5rem;
+            position: relative;
+            padding-left: 1.2rem;
+            font-size: clamp(0.9rem, 3vw, 1rem);
+        }
+        .article-item .sub-list li::before {
+            content: "▹";
+            color: #FFB300;
+            position: absolute;
+            left: 0;
+        }
+
+        /* === DESKTOP DİKEY MENÜ (NOKTA NAVIGASYON) === */
+        .dot-nav {
+            position: fixed;
+            left: 30px;
+            top: 50%;
+            transform: translateY(-50%);
+            display: flex;
+            flex-direction: column;
+            gap: 28px;
+            z-index: 200;
+            background: rgba(20, 20, 20, 0.6);
+            backdrop-filter: blur(8px);
+            padding: 20px 12px;
+            border-radius: 40px;
+            border: 1px solid rgba(255, 179, 0, 0.3);
+        }
+        .dot {
+            width: 12px;
+            height: 12px;
+            background-color: #4a4a4a;
+            border-radius: 50%;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border: 1px solid transparent;
+        }
+        .dot.active {
+            background-color: #FFB300;
+            transform: scale(1.6);
+            box-shadow: 0 0 12px #FFB300;
+        }
+        .dot:hover {
+            background-color: #FFB300;
+            transform: scale(1.3);
+        }
+        /* Tooltip */
+        .dot-nav .dot {
+            position: relative;
+        }
+        .dot-nav .dot:hover::after {
+            content: attr(data-title);
+            position: absolute;
+            left: 28px;
+            top: 50%;
+            transform: translateY(-50%);
+            background: #0c0c0c;
+            color: #FFB300;
+            font-size: 0.75rem;
+            font-weight: 500;
+            white-space: nowrap;
+            padding: 6px 12px;
+            border-radius: 20px;
+            border-left: 3px solid #FFB300;
+            font-family: 'Inter', sans-serif;
+            letter-spacing: 0.5px;
+            backdrop-filter: blur(4px);
+            z-index: 210;
+        }
+
+        /* === MOBİL HAMBURGER MENÜ === */
+        .mobile-menu-btn {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            width: 48px;
+            height: 48px;
+            background: #0c0c0c;
+            border: 1px solid rgba(255, 179, 0, 0.5);
+            border-radius: 50%;
+            display: none;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            gap: 6px;
+            cursor: pointer;
+            z-index: 1000;
+            backdrop-filter: blur(8px);
+            transition: 0.2s;
+        }
+        .mobile-menu-btn span {
+            width: 24px;
+            height: 2px;
+            background-color: #FFB300;
+            border-radius: 2px;
+            transition: 0.3s;
+        }
+        .mobile-menu {
+            position: fixed;
+            top: 0;
+            right: -100%;
+            width: 80%;
+            max-width: 300px;
+            height: 100vh;
+            background: #0a0a0a;
+            backdrop-filter: blur(20px);
+            border-left: 2px solid #FFB300;
+            z-index: 999;
+            padding: 5rem 2rem;
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+            transition: right 0.4s cubic-bezier(0.2, 0.9, 0.4, 1.1);
+            box-shadow: -10px 0 30px rgba(0,0,0,0.8);
+        }
+        .mobile-menu.open {
+            right: 0;
+        }
+        .mobile-menu a {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.4rem;
+            font-weight: 600;
+            color: #e0e0e0;
+            text-decoration: none;
+            padding: 0.75rem 0;
+            border-bottom: 1px solid rgba(255, 179, 0, 0.3);
+            transition: 0.2s;
+        }
+        .mobile-menu a:hover {
+            color: #FFB300;
+            padding-left: 10px;
+        }
+        .mobile-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.7);
+            backdrop-filter: blur(5px);
+            z-index: 998;
+            display: none;
+        }
+        .mobile-overlay.show {
+            display: block;
+        }
+
+        /* === RESPONSIVE (MOBİL) DÜZENLEMELER === */
+        @media (max-width: 768px) {
+            .container {
+                padding: 1.2rem 1.2rem 3rem 1.2rem;
+            }
+            .demand-section {
+                padding: 1.2rem 1.2rem;
+                margin-bottom: 2rem;
+            }
+            .section-title {
+                font-size: 1.5rem;
+            }
+            .dot-nav {
+                display: none;
+            }
+            .mobile-menu-btn {
+                display: flex;
+            }
+            .hero {
+                min-height: 85vh;
+                padding-top: 3rem;
+            }
+            .scroll-indicator span {
+                font-size: 2rem;
+            }
+            .article-item .sub-list {
+                padding-left: 0.8rem;
+            }
+        }
+
+        @media (min-width: 769px) {
+            .mobile-menu, .mobile-menu-btn, .mobile-overlay {
+                display: none;
+            }
+        }
+
+        /* footer yok ama ekstra ferah */
+        footer {
+            text-align: center;
+            padding: 2rem 0 1rem;
+            font-size: 0.8rem;
+            color: #7e7e7e;
+            border-top: 1px solid rgba(255,179,0,0.2);
+            margin-top: 2rem;
+        }
+
+        /* vurgu */
+        strong, b {
+            color: #FFB300;
+            font-weight: 600;
+        }
+        a {
+            text-decoration: none;
+        }
+    </style>
+</head>
+<body>
+
+<!-- Üç Renkli Sabit Şerit -->
+<div class="tricolor-bar">
+    <div class="red"></div>
+    <div class="white"></div>
+    <div class="green"></div>
+</div>
+
+<!-- Desktop Dikey Nokta Menüsü -->
+<div class="dot-nav" id="dotNav">
+    <div class="dot" data-target="bolum1" data-title="Bölüm I"></div>
+    <div class="dot" data-target="bolum2" data-title="Bölüm II"></div>
+    <div class="dot" data-target="bolum3" data-title="Bölüm III"></div>
+    <div class="dot" data-target="bolum4" data-title="Bölüm IV"></div>
+    <div class="dot" data-target="bolum5" data-title="Bölüm V"></div>
+</div>
+
+<!-- Mobil Hamburger Butonu -->
+<div class="mobile-menu-btn" id="hamburgerBtn">
+    <span></span>
+    <span></span>
+    <span></span>
+</div>
+
+<!-- Mobil Menü İçeriği -->
+<div class="mobile-menu" id="mobileMenu">
+    <a href="#bolum1" data-mobile-link="bolum1">⚡ BÖLÜM I : Siyasi Statü</a>
+    <a href="#bolum2" data-mobile-link="bolum2">🌍 BÖLÜM II : Coğrafi Egemenlik</a>
+    <a href="#bolum3" data-mobile-link="bolum3">📜 BÖLÜM III : Dil & Kültür</a>
+    <a href="#bolum4" data-mobile-link="bolum4">⚖️ BÖLÜM IV : Tarihsel Adalet</a>
+    <a href="#bolum5" data-mobile-link="bolum5">🏛️ BÖLÜM V : Stratejik Hedef</a>
+</div>
+<div class="mobile-overlay" id="mobileOverlay"></div>
+
+<main class="container">
+    <!-- Hero Section -->
+    <section class="hero">
+        <h1>KÜRT ULUSAL TALEPLER BİLDİRGESİ</h1>
+        <div class="subhead">Declaration of Kurdish National Demands</div>
+        <p class="intro-text">
+            Bizler, Mezopotamya ve kadim Ortadoğu coğrafyasının en eski halklarından biri olan Kürt ulusu olarak; 
+            uluslararası hukukun evrensel ilkelerine, Birleşmiş Milletler Şartı’na ve insanlığın ortak değerlerine dayanarak, 
+            maruz kaldığımız tarihsel adaletsizliklerin son bulması, ulusal kimliğimizin korunması ve geleceğimizi özgürce 
+            tayin edebilmek adına işbu ulusal talepler bildirgesini dünya kamuoyuna ve ilgili devletlere ilan ederiz.
+        </p>
+        <div class="scroll-indicator" id="scrollArrow">
+            <span>⬇</span>
+        </div>
+    </section>
+
+    <!-- BÖLÜM I : SİYASİ STATÜ VE KENDİ KADERİNİ TAYİN HAKKI -->
+    <section id="bolum1" class="demand-section">
+        <h2 class="section-title">BÖLÜM I: SİYASİ STATÜ VE KENDİ KADERİNİ TAYİN HAKKI</h2>
+        <div class="article-list">
+            <div class="article-item">
+                <h3>Madde 1: Kendi Kaderini Tayin (Self-Determination) Hakkı</h3>
+                <p>Kürt ulusu, uluslararası ikiz sözleşmelerle güvence altına alınan "Kendi Kaderini Tayin Hakkı" uyarınca kendi siyasi statüsünü, ekonomik, sosyal ve kültürel gelişimini özgürce belirleme hakkına sahiptir.</p>
+            </div>
+            <div class="article-item">
+                <h3>Madde 2: Egemenlik ve İdari Yapı</h3>
+                <p><strong>Federal/Konfederal Model:</strong> Kürt ulusunun yaşadığı coğrafi bölgelerde, kendi anayasası, seçilmiş parlamentosu, bağımsız yargısı ve hükümeti olan geniş yetkilere sahip otonom, federal veya konfederal yönetim yapıları tesis edilecektir.</p>
+                <p><strong>Anayasal Ortaklık:</strong> Kürt ulusu, sınırları içinde yaşadığı devletlerin anayasalarında "kurucu ve asli unsur" olarak tanınacak; devlet yapısı bu ortaklık esasına göre yeniden dizayn edilecektir.</p>
+                <p><strong>Savunma Hakkı:</strong> Otonom bölgelerin iç ve dış güvenliğini sağlamak amacıyla, merkezi ordulardan bağımsız, yerel savunma güçleri (Peşmerge ve yerel asayiş birimleri) yasal statüye kavuşturulacaktır.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- BÖLÜM II : COĞRAFİ EGEMENLİK VE BÖLGESEL TERMİNOLOJİ -->
+    <section id="bolum2" class="demand-section">
+        <h2 class="section-title">BÖLÜM II: COĞRAFİ EGEMENLİK VE BÖLGESEL TERMİNOLOJİ</h2>
+        <div class="article-list">
+            <div class="article-item">
+                <h3>Madde 3: Coğrafi Sınırların ve İsimlerin Resmiyet Kazanması</h3>
+                <p>Kürdistan coğrafyasının tarihsel bütünlüğü ve sömürgeci politikalarla dayatılan yapay isimlendirmeler reddedilir. Aşağıdaki coğrafi tanımlamalar ilgili devletlerin resmi haritalarında, müfredatlarında ve idari yapılarında yasal olarak kabul edilecektir:</p>
+                <ul class="sub-list">
+                    <li><strong>Kuzey Kürdistan:</strong> Türkiye sınırları içinde kalan, tarihsel olarak Kürt nüfusun yoğun yaşadığı coğrafya.</li>
+                    <li><strong>Doğu Kürdistan (Rojhilat):</strong> İran sınırları içindeki Batı Azerbaycan, Kürdistan, Kirmanşah ve İlam gibi eyaletleri kapsayan bölge.</li>
+                    <li><strong>Batı Kürdistan (Rojava):</strong> Suriye sınırları içindeki Haseke, Rakka'nın kuzeyi, Kobani ve Afrin hatlarını kapsayan bölge.</li>
+                    <li><strong>Güney Kürdistan (Başur):</strong> Irak sınırlarındaki mevcut Kürdistan Bölgesel Yönetimi ve Kerkük dahil tüm tartışmalı bölgeler.</li>
+                </ul>
+            </div>
+            <div class="article-item">
+                <h3>Madde 4: Ulusal Semboller ve Temsil</h3>
+                <p><strong>Bayrak ve Marş:</strong> Kırmızı, beyaz, yeşil şeritler ve 21 ışınlı sarı güneşten oluşan Kürdistan Bayrağı (Ala Rengîn) ile Kürt ulusal marşı tüm resmi kurumlarda devlet sembolleriyle eşit statüde kullanılacaktır.</p>
+                <p><strong>Dış Temsil:</strong> Kürt otonom yönetimleri, yurt dışında kendi adlarına diplomatik misyonlar ve "Kürdistan Temsilcilikleri" açma hakkına sahip olacaktır.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- BÖLÜM III : DİL, KÜLTÜR VE KİMLİK HAKLARI -->
+    <section id="bolum3" class="demand-section">
+        <h2 class="section-title">BÖLÜM III: DİL, KÜLTÜR VE KİMLİK HAKLARI</h2>
+        <div class="article-list">
+            <div class="article-item">
+                <h3>Madde 5: Resmi Dil Statüsü</h3>
+                <p>Kürtçe, Kürt nüfusunun yaşadığı devletlerin tamamında (Türkiye, İran, Irak, Suriye) merkezi düzeyde birinci resmi dil (Türkçe, Farsça ve Arapça) ile tamamen eşit yasal statüye sahip olacaktır.</p>
+            </div>
+            <div class="article-item">
+                <h3>Madde 6: Eğitim ve Kamusal Yaşam</h3>
+                <p><strong>Anadilde Eğitim:</strong> Anaokulundan üniversite eğitiminin sonuna kadar tüm kademelerde Kürtçe, temel eğitim ve öğretim dili olarak uygulanacaktır.</p>
+                <p><strong>Kamu Hizmetleri:</strong> Yargı, sağlık, güvenlik ve tüm bürokratik mekanizmalarda vatandaşlara Kürtçe hizmet verilmesi anayasal zorunluluk olacaktır.</p>
+                <p><strong>Resmi Evraklar:</strong> Kimlik, pasaport, tapu ve diploma gibi tüm devlet belgeleri çift dilli (ilgili devletin dili ve Kürtçe) olarak düzenlenecektir.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- BÖLÜM IV : TARİHSEL ADALET VE EKONOMİK EGEMENLİK -->
+    <section id="bolum4" class="demand-section">
+        <h2 class="section-title">BÖLÜM IV: TARİHSEL ADALET VE EKONOMİK EGEMENLİK</h2>
+        <div class="article-list">
+            <div class="article-item">
+                <h3>Madde 7: Geçmişle Yüzleşme ve Soykırım İtirafları</h3>
+                <p><strong>Resmi Özür:</strong> İlgili devletler; Koçgiri, Zilan, Dersim, Halepçe, Enfal katliamları, 1990'lardaki köy boşaltmaları ve faili meçhul cinayetleri resmi olarak "soykırım ve insanlık suçu" olarak tanıyacak, Birleşmiş Milletler nezdinde Kürt halkından resmi özür dileyecektir.</p>
+                <p><strong>Tazminat:</strong> Zarar gören tüm yerleşim yerleri tarihi dokusuna uygun olarak yeniden inşa edilecek, mağdur ailelere toplu ve bireysel maddi/manevi tazminat ödenecektir.</p>
+            </div>
+            <div class="article-item">
+                <h3>Madde 8: Kaynakların Egemenliği ve Ekonomik Haklar</h3>
+                <p><strong>Gelir Payı:</strong> Kürdistan coğrafyasında bulunan petrol, doğalgaz, madenler, su kaynakları ve tarım gelirlerinin en az %50'si doğrudan yerel Kürt yönetimlerine aktarılacaktır.</p>
+                <p><strong>Tarihsel Telafi:</strong> Geçmiş dönemlerde bölgedeki barajlar ve enerji tesisleri üzerinden merkezi bütçelere aktarılan ekonomik değerler hesaplanarak, geriye dönük bir "ekonomik telafi fonu" altında bölgeye iade edilecektir.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- BÖLÜM V : NİHAİ VE STRATEJİK HEDEF -->
+    <section id="bolum5" class="demand-section">
+        <h2 class="section-title">BÖLÜM V: NİHAİ VE STRATEJİK HEDEF</h2>
+        <div class="article-list">
+            <div class="article-item">
+                <h3>Madde 9: Tam Bağımsızlık Perspektifi</h3>
+                <p>İşbu bildirgede talep edilen otonomi, federasyon veya konfederal modeller, Kürt ulusunun nihai hedefi olan <strong>"Dört parçayı kapsayan, tam bağımsız ve egemen Kürdistan Cumhuriyeti"</strong> vizyonuna giden yolda geçici ve barışçıl idari aşamalardır. Kürt ulusu, şartlar olgunlaştığında barışçıl referandumlar yoluyla bağımsızlığını ilan etme hakkını saklı tutar.</p>
+ 
